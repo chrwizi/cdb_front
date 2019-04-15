@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {buildPath} from 'selenium-webdriver/http';
 
-import {ComputerDashboardModule} from './components/computer-dashboard/computer-dashboard.module';
 import {ComputerAddFormComponent} from './components/computer-dashboard/computer-add-form/computer-add-form.component';
 import {ComputerDeleteFormComponent} from './components/computer-dashboard/computer-delete-form/computer-delete-form.component';
 import {ComputerTableComponent} from './components/computer-dashboard/computer-table/computer-table.component';
+import {UserLoginComponent} from './components/user/user-login/user-login.component';
+import {ComputerUpdateFormComponent} from './components/computer-dashboard/computer-update-form/computer-update-form.component';
 
 const routes: Routes = [
 
@@ -23,6 +24,17 @@ const routes: Routes = [
     path: 'computers/delete/:id',
     component: ComputerDeleteFormComponent
   },
+
+  {
+    path: 'computers/edit/:id',
+    component: ComputerUpdateFormComponent
+  },
+
+  {
+    path: 'login',
+    component: UserLoginComponent
+  },
+
   {
     path: '**',
     redirectTo: 'computers',

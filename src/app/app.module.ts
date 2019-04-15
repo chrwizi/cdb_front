@@ -7,12 +7,16 @@ import { NavigationModule } from './components/navigation/navigation.module';
 import { ComputerDashboardModule } from './components/computer-dashboard/computer-dashboard.module'
 import { CompanyDashboardModule } from './components/company-dashboard/company-dashboard.module';
 import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapper/global-wrapper.component';
+import { UserLoginComponent } from './components/user/user-login/user-login.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GlobalWrapperComponent
+    GlobalWrapperComponent,
+    UserLoginComponent
+
   ],
   imports: [
     BrowserModule,
