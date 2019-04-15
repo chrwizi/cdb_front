@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { NavigationModule } from './components/navigation/navigation.module';
 import { ComputerDashboardModule } from './components/computer-dashboard/computer-dashboard.module'
 import { CompanyDashboardModule } from './components/company-dashboard/company-dashboard.module';
+import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapper/global-wrapper.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GlobalWrapperComponent
   ],
   imports: [
     BrowserModule,

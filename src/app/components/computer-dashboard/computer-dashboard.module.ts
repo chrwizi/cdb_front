@@ -7,15 +7,16 @@ import { ComputerTableComponent } from './computer-table/computer-table.componen
 import { ComputerRowComponent } from './computer-row/computer-row.component';
 import { ComputerAddFormComponent } from './computer-add-form/computer-add-form.component';
 import { ComputerUpdateFormComponent } from './computer-update-form/computer-update-form.component';
+import { ComputerDashboardWrapperComponent } from './computer-dashboard-wrapper/computer-dashboard-wrapper.component';
 
 
 @NgModule({
-  declarations: [ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerRowComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent],
+  declarations: [ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerRowComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent, ComputerDashboardWrapperComponent],
   imports: [
     CommonModule
   ],
   exports: [
-    ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerRowComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent
+    ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerRowComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent, ComputerDashboardWrapperComponent
   ]
 })
 export class ComputerDashboardModule { }
