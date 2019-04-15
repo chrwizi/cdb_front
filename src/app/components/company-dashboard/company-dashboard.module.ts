@@ -12,6 +12,9 @@ import { CompanyDeleteFormComponent } from './company-delete-form/company-delete
   declarations: [CompanyCountComponent, CompanyFiltersComponent, CompanyTableComponent, CompanyRowComponent, CompanyAddFormComponent, CompanyUpdateFormComponent, CompanyDeleteFormComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    CompanyCountComponent, CompanyFiltersComponent, CompanyTableComponent, CompanyRowComponent, CompanyAddFormComponent, CompanyUpdateFormComponent, CompanyDeleteFormComponent
   ]
 })
 export class CompanyDashboardModule { }
