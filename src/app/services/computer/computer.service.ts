@@ -7,7 +7,7 @@ import { Computer } from 'src/app/models/computer.model';
   providedIn: 'root'
 })
 export class ComputerService {
-  private url = "http://10.0.1.14:9000/projetCdb";
+  private url = 'http://10.0.1.14:9000/projetCdb';
   constructor(private http: HttpClient) {}
 
   getComputers(): Observable<Computer[]> {
