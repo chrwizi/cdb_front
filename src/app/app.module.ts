@@ -9,6 +9,7 @@ import { ComputerDashboardModule } from './components/computer-dashboard/compute
 import { CompanyDashboardModule } from './components/company-dashboard/company-dashboard.module';
 import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapper/global-wrapper.component';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
+import { CustomMaterialModule } from './custom-material/custom-material.module';
 
 
 
@@ -18,6 +19,7 @@ import { UserLoginComponent } from './components/user/user-login/user-login.comp
     GlobalWrapperComponent,
     UserLoginComponent
 
+
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { UserLoginComponent } from './components/user/user-login/user-login.comp
     AppRoutingModule,
     NavigationModule,
     ComputerDashboardModule,
-    CompanyDashboardModule
+    CompanyDashboardModule,
+    CustomMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
