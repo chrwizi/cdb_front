@@ -7,19 +7,22 @@ import { NavigationModule } from './components/navigation/navigation.module';
 import { ComputerDashboardModule } from './components/computer-dashboard/computer-dashboard.module'
 import { CompanyDashboardModule } from './components/company-dashboard/company-dashboard.module';
 import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapper/global-wrapper.component';
+import { CustomMaterialModule } from './custom-material/custom-material.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GlobalWrapperComponent
+    GlobalWrapperComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NavigationModule,
     ComputerDashboardModule,
-    CompanyDashboardModule
+    CompanyDashboardModule,
+    CustomMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
