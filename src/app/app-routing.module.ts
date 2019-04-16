@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {buildPath} from 'selenium-webdriver/http';
 
 import {ComputerAddFormComponent} from './components/computer-dashboard/computer-add-form/computer-add-form.component';
 import {ComputerDeleteFormComponent} from './components/computer-dashboard/computer-delete-form/computer-delete-form.component';
@@ -8,7 +7,10 @@ import {ComputerTableComponent} from './components/computer-dashboard/computer-t
 import {UserLoginComponent} from './components/user/user-login/user-login.component';
 import {ComputerUpdateFormComponent} from './components/computer-dashboard/computer-update-form/computer-update-form.component';
 import { CompanyTableComponent } from './components/company-dashboard/company-table/company-table.component';
+<<<<<<< HEAD
 import {ComputerDashboardModule} from './components/computer-dashboard/computer-dashboard.module';
+=======
+>>>>>>> [wip] services and table/row components
 
 const routes: Routes = [
 
