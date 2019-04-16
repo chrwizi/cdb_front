@@ -12,9 +12,7 @@ import { MatTableModule, MatPaginatorModule, MatButtonToggleModule } from '@angu
 
 
 @NgModule({
-  declarations: [
-    
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     MatCardModule,
