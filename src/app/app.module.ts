@@ -10,6 +10,7 @@ import { CompanyDashboardModule } from './components/company-dashboard/company-d
 
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapper/global-wrapper.component';
+import { CustomMaterialModule } from './custom-material/custom-material.module';
 
 
 
@@ -25,7 +26,8 @@ import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapp
     AppRoutingModule,
     NavigationModule,
     ComputerDashboardModule,
-    CompanyDashboardModule
+    CompanyDashboardModule,
+    CustomMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
