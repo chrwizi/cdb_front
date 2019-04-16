@@ -12,11 +12,18 @@ export class ComputerTableComponent implements OnInit {
 
   constructor(private computerService: ComputerService){
   }
-  
+
+  ngOnInit(): void {
+  }
+
+
+
+  /*
   ngOnInit() {
     this.computerService.getComputers().subscribe(
       computers => this.computers = computers
     );
   }
+  */
 
 }
