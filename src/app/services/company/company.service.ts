@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class CompanyService {
-  private url = 'http://10.0.1.14:9000/projetCdb';
+  private url = 'http://localhost:8080/projetCdb';
   constructor(private http: HttpClient) {}
 
   getCompanies(): Observable<Company[]> {

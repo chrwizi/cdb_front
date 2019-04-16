@@ -10,7 +10,9 @@ export class ComputerService {
   private url = 'http://10.0.1.14:9000/projetCdb';
   constructor(private http: HttpClient) {}
 
+  /*
   getComputers(): Observable<Computer[]> {
     return this.http.get<Computer[]>(this.url);
   }
+  */
 }
