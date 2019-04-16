@@ -1,5 +1,1 @@
-<ul>
-  <li *ngFor="let item of [0,1,2]">
-    <app-computer-row></app-computer-row>
-  </li>
-</ul>
+<app-computer-row *ngFor="let computer of computers" [computer]="computer"></app-computer-row>
