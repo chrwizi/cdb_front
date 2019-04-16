@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavigationModule } from './components/navigation/navigation.module';
 import { ComputerDashboardModule } from './components/computer-dashboard/computer-dashboard.module';
@@ -20,6 +21,7 @@ import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapp
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NavigationModule,
     ComputerDashboardModule,
