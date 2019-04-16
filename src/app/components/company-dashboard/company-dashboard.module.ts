@@ -7,11 +7,15 @@ import { CompanyRowComponent } from './company-row/company-row.component';
 import { CompanyAddFormComponent } from './company-add-form/company-add-form.component';
 import { CompanyUpdateFormComponent } from './company-update-form/company-update-form.component';
 import { CompanyDeleteFormComponent } from './company-delete-form/company-delete-form.component';
+import { CompanyDashboardWrapperComponent } from './company-dashboard-wrapper/company-dashboard-wrapper.component';
 
 @NgModule({
-  declarations: [CompanyCountComponent, CompanyFiltersComponent, CompanyTableComponent, CompanyRowComponent, CompanyAddFormComponent, CompanyUpdateFormComponent, CompanyDeleteFormComponent],
+  declarations: [CompanyCountComponent, CompanyFiltersComponent, CompanyTableComponent, CompanyRowComponent, CompanyAddFormComponent, CompanyUpdateFormComponent, CompanyDeleteFormComponent, CompanyDashboardWrapperComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    CompanyCountComponent, CompanyFiltersComponent, CompanyTableComponent, CompanyRowComponent, CompanyAddFormComponent, CompanyUpdateFormComponent, CompanyDeleteFormComponent, CompanyDashboardWrapperComponent
   ]
 })
 export class CompanyDashboardModule { }

@@ -13,3 +13,5 @@ export class SidebarComponent implements OnInit {
   }
 
 }
+
+export default SidebarComponent;
