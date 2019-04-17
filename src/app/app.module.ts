@@ -11,6 +11,8 @@ import { CompanyDashboardModule } from './components/company-dashboard/company-d
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapper/global-wrapper.component';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
+import { UserRegisterComponent } from './components/user/user-register/user-register.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +20,8 @@ import { CustomMaterialModule } from './custom-material/custom-material.module';
   declarations: [
     AppComponent,
     UserLoginComponent,
-    GlobalWrapperComponent
+    GlobalWrapperComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { CustomMaterialModule } from './custom-material/custom-material.module';
     NavigationModule,
     ComputerDashboardModule,
     CompanyDashboardModule,
+    FormsModule,
     CustomMaterialModule
   ],
   providers: [],

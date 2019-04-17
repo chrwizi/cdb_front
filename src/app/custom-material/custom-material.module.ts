@@ -9,6 +9,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input'; 
 import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatIconModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatIconModul
     MatPaginatorModule,
     MatButtonToggleModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
   exports:[
     MatCardModule,
@@ -38,7 +40,8 @@ import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatIconModul
     MatPaginatorModule,
     MatButtonToggleModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
 
   ]
 })

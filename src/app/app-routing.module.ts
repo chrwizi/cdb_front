@@ -11,6 +11,7 @@ import { CompanyTableComponent } from './components/company-dashboard/company-ta
 import { ComputerDashboardWrapperComponent } from './components/computer-dashboard/computer-dashboard-wrapper/computer-dashboard-wrapper.component';
 import { CompanyDashboardWrapperComponent } from './components/company-dashboard/company-dashboard-wrapper/company-dashboard-wrapper.component';
 import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapper/global-wrapper.component';
+import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 
 const routes: Routes = [
 
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: UserLoginComponent
+  },
+  {
+    path: 'register',
+    component: UserRegisterComponent
   },
 
   {
