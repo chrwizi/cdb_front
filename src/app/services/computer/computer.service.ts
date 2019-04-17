@@ -14,6 +14,10 @@ export class ComputerService {
     return this.http.get<Computer>(`${ this.url }/${ id }`);
   }
 
+  getComputers(): Observable<Computer[]> {
+    return this.http.get<Computer[]>(`${ this.url }`);
+  }
+
   add(computer: Computer): Observable<void> {
     return this.http.post<void>(this.url, computer);
   }

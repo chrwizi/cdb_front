@@ -61,16 +61,10 @@ export class ComputerTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-
-
-  /*
-  ngOnInit() {
     this.computerService.getComputers().subscribe(
       computers => this.computers = computers
     );
   }
-  */
+ 
 
 }
