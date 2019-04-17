@@ -1,3 +1,20 @@
-<p>
-  user-login works!
-</p>
+<mat-card class="login-container">
+
+  <form class="login-form">
+
+    <div class="field"><mat-form-field [hideRequiredMarker]=true >
+        <input matInput placeholder="Username" required>
+      </mat-form-field></div>
+    
+  
+    <div class="field"><mat-form-field [hideRequiredMarker]=true >
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </mat-form-field></div>
+    
+
+    <div class="login-field"><button  mat-button>Login</button></div>
+    
+
+  </form>
+</mat-card>

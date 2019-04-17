@@ -8,16 +8,22 @@ import {UserLoginComponent} from './components/user/user-login/user-login.compon
 import {ComputerUpdateFormComponent} from './components/computer-dashboard/computer-update-form/computer-update-form.component';
 import { CompanyTableComponent } from './components/company-dashboard/company-table/company-table.component';
 
+import { ComputerDashboardWrapperComponent } from './components/computer-dashboard/computer-dashboard-wrapper/computer-dashboard-wrapper.component';
+import { CompanyDashboardWrapperComponent } from './components/company-dashboard/company-dashboard-wrapper/company-dashboard-wrapper.component';
+import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapper/global-wrapper.component';
+
 const routes: Routes = [
 
   {
     path: 'computers',
-    component: ComputerTableComponent
+
+    component: ComputerDashboardWrapperComponent
+
   },
 
   {
     path: 'companies',
-    component: CompanyTableComponent
+    component: CompanyDashboardWrapperComponent
   },
 
   {
@@ -42,7 +48,7 @@ const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: 'computers',
+    component: UserLoginComponent,
     pathMatch: 'full'
   }
 

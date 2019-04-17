@@ -1,10 +1,8 @@
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { Computer } from 'src/app/models/computer.model';
 import { ComputerService } from 'src/app/services/computer/computer.service';
 import { Mock } from 'protractor/built/driverProviders';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
-
 
 @Component({
   selector: 'app-computer-table',
