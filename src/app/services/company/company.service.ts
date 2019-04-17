@@ -8,10 +8,26 @@ import { Observable } from 'rxjs';
 })
 
 export class CompanyService {
-  private url = 'http://localhost:8080/projetCdb';
+  private url = 'http://10.0.1.14:9000/projetCdb/api';
   constructor(private http: HttpClient) {}
 
   getCompanies(): Observable<Company[]> {
     return this.http.get<Company[]>(this.url);
+  }
+
+  getCompany(id: String): Observable<Company> {
+    return this.http.get<Company>(`${ this.url }/${ id }`);
+  }
+
+  add(company: Company): Observable<void> {
+    return this.http.post<void>(this.url, company);
+  }
+
+  delete(id: String): Observable<void> {
+    return this.http.delete<void>(`${ this.url }/${ id }`);
+  }
+
+  update(company: Company): Observable<void> {
+    return this.http.patch<void>(`${ this.url }/${ company.id }`, company);
   }
 }
