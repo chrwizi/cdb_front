@@ -8,17 +8,39 @@ import { ComputerRowComponent } from './computer-row/computer-row.component';
 import { ComputerAddFormComponent } from './computer-add-form/computer-add-form.component';
 import { ComputerUpdateFormComponent } from './computer-update-form/computer-update-form.component';
 import { ComputerDashboardWrapperComponent } from './computer-dashboard-wrapper/computer-dashboard-wrapper.component';
-import { CustomMaterialModule } from 'src/app/custom-material/custom-material.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSelectModule } from '@angular/material';
 
 
 @NgModule({
-  declarations: [ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerRowComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent, ComputerDashboardWrapperComponent],
+  declarations: [
+    ComputerCountComponent, 
+    ComputerFiltersComponent, 
+    ComputerTableComponent, 
+    ComputerRowComponent, 
+    ComputerAddFormComponent, 
+    ComputerUpdateFormComponent, 
+    ComputerDeleteFormComponent, 
+    ComputerDashboardWrapperComponent],
   imports: [
     CommonModule,
-    CustomMaterialModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
-    ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerRowComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent, ComputerDashboardWrapperComponent
+    ComputerCountComponent, 
+    ComputerFiltersComponent, 
+    ComputerTableComponent, 
+    ComputerRowComponent, 
+    ComputerAddFormComponent, 
+    ComputerUpdateFormComponent, 
+    ComputerDeleteFormComponent, 
+    ComputerDashboardWrapperComponent
   ]
 })
 export class ComputerDashboardModule { }
