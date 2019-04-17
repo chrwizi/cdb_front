@@ -1,3 +1,4 @@
+import { CustomMaterialModule } from './../../custom-material/custom-material.module';
 import { ComputerDeleteFormComponent } from './computer-delete-form/computer-delete-form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,8 +9,7 @@ import { ComputerRowComponent } from './computer-row/computer-row.component';
 import { ComputerAddFormComponent } from './computer-add-form/computer-add-form.component';
 import { ComputerUpdateFormComponent } from './computer-update-form/computer-update-form.component';
 import { ComputerDashboardWrapperComponent } from './computer-dashboard-wrapper/computer-dashboard-wrapper.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSelectModule } from '@angular/material';
+
 
 
 @NgModule({
@@ -24,13 +24,7 @@ import { MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatInputM
     ComputerDashboardWrapperComponent],
   imports: [
     CommonModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule
+    CustomMaterialModule
   ],
   exports: [
     ComputerCountComponent, 

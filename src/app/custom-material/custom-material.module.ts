@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatCardModule} from '@angular/material/card'; 
@@ -8,7 +9,7 @@ import {MatDividerModule} from '@angular/material/divider';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input'; 
-import { MatTableModule, MatPaginatorModule, MatButtonToggleModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule } from '@angular/material';
 
 
 @NgModule({
@@ -24,7 +25,14 @@ import { MatTableModule, MatPaginatorModule, MatButtonToggleModule } from '@angu
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     MatCardModule,
@@ -34,8 +42,14 @@ import { MatTableModule, MatPaginatorModule, MatButtonToggleModule } from '@angu
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatButtonToggleModule
-
+    MatButtonToggleModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CustomMaterialModule {  }
