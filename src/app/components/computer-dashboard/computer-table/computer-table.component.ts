@@ -80,7 +80,7 @@ export class ComputerTableComponent implements OnInit {
       computers => this.computers = computers
     );
   }
-  */
+ */
 
 }
 
