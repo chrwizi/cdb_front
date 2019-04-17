@@ -7,6 +7,9 @@ import {ComputerTableComponent} from './components/computer-dashboard/computer-t
 import {UserLoginComponent} from './components/user/user-login/user-login.component';
 import {ComputerUpdateFormComponent} from './components/computer-dashboard/computer-update-form/computer-update-form.component';
 import { CompanyTableComponent } from './components/company-dashboard/company-table/company-table.component';
+import {ComputerDashboardModule} from './components/computer-dashboard/computer-dashboard.module';
+
+
 
 import { ComputerDashboardWrapperComponent } from './components/computer-dashboard/computer-dashboard-wrapper/computer-dashboard-wrapper.component';
 import { CompanyDashboardWrapperComponent } from './components/company-dashboard/company-dashboard-wrapper/company-dashboard-wrapper.component';

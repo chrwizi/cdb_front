@@ -7,15 +7,15 @@ import { Computer } from 'src/app/models/computer.model';
   providedIn: 'root'
 })
 export class ComputerService {
-  private url = 'http://10.0.1.14:9000/projetCdb/api';
+  private url = 'http://10.0.1.14:9000/projetCdb/api/computers';
   constructor(private http: HttpClient) {}
+  
+  getComputers(): Observable<Computer[]> {
+    return this.http.get<Computer[]>(this.url);
+  }
 
   getComputer(id: String): Observable<Computer> {
     return this.http.get<Computer>(`${ this.url }/${ id }`);
-  }
-
-  getComputers(): Observable<Computer[]> {
-    return this.http.get<Computer[]>(`${ this.url }`);
   }
 
   add(computer: Computer): Observable<void> {
