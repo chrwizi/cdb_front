@@ -1,62 +1,12 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<!--<app-computer-row *ngFor="let computer of computers" [computer]="computer"></app-computer-row>-->
-=======
-
-<!-- <app-computer-row *ngFor="let computer of computers" [computer]="computer"></app-computer-row>
->>>>>>> [ADD] Material table and nav templates
-
-<!-- <div class="container">
+<div class="container">
   <table mdbTable  class="z-depth-1">
-    <thead> -->
+    <thead>
 
 
    <tr>
       <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
       </th>
     </tr>
-
-<!--     <tr>
-      <th *ngFor="let head of tableHeader ; let i = index" scope="col">head </th>
-    </tr>
-
-    </thead>
-<<<<<<< HEAD
-    <tbody> -->
-<!--
-=======
-    <tbody>
-
->>>>>>> [ADD] Material table and nav templates
-    <tr *ngFor="let el of elements; let i = index">
-      <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
-          scope="row">{{el.id}}</th>
-      <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.first}}</td>
-      <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.last}}</td>
-      <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.handle}}</td>
-    </tr>
-<<<<<<< HEAD
-    -->
-<!--     </tbody>
-=======
-
-    </tbody>
->>>>>>> [ADD] Material table and nav templates
-    <tfoot class="grey lighten-5 w-100">
-    <tr>
-      <td colspan="4">
-        <mdb-table-pagination  ></mdb-table-pagination>
-      </td>
-    </tr>
-    </tfoot>
-  </table>
-</div> -->
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> [ADD] Material table and nav templates
 
 
   <div class="mat-elevation-z8">
@@ -93,11 +43,5 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
   
-<<<<<<< HEAD
->>>>>>> [ADD] Material table and nav templates
-=======
-<app-computer-row *ngFor="let computer of computers" [computer]="computer"></app-computer-row>
->>>>>>> [wip] services and table/row components
-=======
 
->>>>>>> [ADD] Material table and nav templates
+<app-computer-row *ngFor="let computer of computers" [computer]="computer"></app-computer-row>
