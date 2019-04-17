@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 
 
 
+
 export class CompanyTableComponent implements OnInit{
 
   tableHeader: any[];
