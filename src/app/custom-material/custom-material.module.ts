@@ -28,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonToggleModule,
     MatInputModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
   ],
   exports:[
     MatCardModule,
@@ -41,7 +42,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonToggleModule,
     MatInputModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
 
   ]
 })

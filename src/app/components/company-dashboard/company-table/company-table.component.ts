@@ -1,7 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { Company } from 'src/app/models/company.model';
 import { CompanyService } from 'src/app/services/company/company.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatPaginator } from '@angular/material';
+import { MatTable } from '@angular/material';
+
 
 @Component({
   selector: 'app-company-table',
@@ -10,21 +13,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 
-
-
-
 export class CompanyTableComponent implements OnInit{
 
-  tableHeader: any[];
+
   companies: Company[];
 
-  constructor(private companyService: CompanyService,  private router: ActivatedRoute) {
-    this.tableHeader = ['company', 'name' , 'Introduced date', 'discontinued date '];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  displayedColumns: string[] = ['name'];
+
+
+  constructor(private companyService: CompanyService) {
+    
   }
 
   ngOnInit() {
+    //this.companyService.getCompanies().subscribe( companies => this.companies = companies );
+
     this.companyService.getCompanies().subscribe(
-      companies => this.companies = companies
-    );
+       companies => this.companies = companies
+   );
   }
 }

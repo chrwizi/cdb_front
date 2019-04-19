@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { ComputerCountComponent } from './computer-count/computer-count.component';
 import { ComputerFiltersComponent } from './computer-filters/computer-filters.component';
 import { ComputerTableComponent } from './computer-table/computer-table.component';
-import { ComputerRowComponent } from './computer-row/computer-row.component';
 import { ComputerAddFormComponent } from './computer-add-form/computer-add-form.component';
 import { ComputerUpdateFormComponent } from './computer-update-form/computer-update-form.component';
 import { ComputerDashboardWrapperComponent } from './computer-dashboard-wrapper/computer-dashboard-wrapper.component';
@@ -12,13 +11,13 @@ import { CustomMaterialModule } from 'src/app/custom-material/custom-material.mo
 
 
 @NgModule({
-  declarations: [ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerRowComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent, ComputerDashboardWrapperComponent],
+  declarations: [ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent, ComputerDashboardWrapperComponent],
   imports: [
     CommonModule,
     CustomMaterialModule
   ],
   exports: [
-    ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerRowComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent, ComputerDashboardWrapperComponent
+    ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent, ComputerDashboardWrapperComponent
   ]
 })
 export class ComputerDashboardModule { }
