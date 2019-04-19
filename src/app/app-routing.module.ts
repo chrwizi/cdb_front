@@ -1,3 +1,6 @@
+import { CompanyDeleteFormComponent } from './components/company-dashboard/company-delete-form/company-delete-form.component';
+import { CompanyUpdateFormComponent } from './components/company-dashboard/company-update-form/company-update-form.component';
+import { CompanyAddFormComponent } from './components/company-dashboard/company-add-form/company-add-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -15,26 +18,34 @@ const routes: Routes = [
     path: 'computers',
     component: ComputerDashboardWrapperComponent
   },
-
+  {
+    path: 'computers/add',
+    component: ComputerAddFormComponent
+  },
+  {
+    path: 'computers/edit/:id',
+    component: ComputerUpdateFormComponent
+  },
+  {
+    path: 'computers/delete/:id',
+    component: ComputerDeleteFormComponent
+  },
   {
     path: 'companies',
     component: CompanyDashboardWrapperComponent
   },
   {
-    path: 'computers/add',
-    component: ComputerAddFormComponent
+    path: 'companies/add',
+    component: CompanyAddFormComponent
   },
-
   {
-    path: 'computers/delete/:id',
-    component: ComputerDeleteFormComponent
+    path: 'companies/edit/:id',
+    component: CompanyUpdateFormComponent
   },
-
   {
-    path: 'computers/edit/:id',
-    component: ComputerUpdateFormComponent
+    path: 'companies/delete/:id',
+    component: CompanyDeleteFormComponent
   },
-
   {
     path: 'login',
     component: UserLoginComponent

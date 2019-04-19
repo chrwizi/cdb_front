@@ -15,7 +15,6 @@ export class ComputerUpdateFormComponent implements OnInit {
 
   companies: Company[];
   computer: Computer;
-  id: string;
   computerEditForm: FormGroup = this.fb.group({
     id: [''],
     name: [''],
@@ -32,9 +31,8 @@ export class ComputerUpdateFormComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  ngOnInit() {
+  ngOnInit() : void {
 
-    // Retrieving Companies for the select
     this.companyService.getCompanies().subscribe(
       companies => {
         console.debug("companies", companies)
@@ -43,21 +41,19 @@ export class ComputerUpdateFormComponent implements OnInit {
       error => console.error('There was an error retrieving the companies') 
     )
 
-    // Retrieving / Setting the id.
-    this.id = this.route.snapshot.paramMap.get("id");
+    let id = this.route.snapshot.paramMap.get("id");
 
-    // Retrieving the Computer data
-    this.computerService.getComputer(this.id).subscribe(
+    this.computerService.getComputer(id).subscribe(
       computer => {
         console.debug('computer', computer);
         this.computerEditForm.setValue(computer)
       },
-      error => console.error("There was an error retrieving the computer with id " + this.id)
+      error => console.error("There was an error retrieving the computer with id " + id)
     );
 
   }
 
-  onSubmit(): void {
+  onSubmit() : void {
     console.debug('computer', this.computerEditForm.value);
 
     this.computerService.update(this.computerEditForm.value).subscribe(
