@@ -11,9 +11,6 @@ import {ComputerUpdateFormComponent} from './components/computer-dashboard/compu
 import { CompanyTableComponent } from './components/company-dashboard/company-table/company-table.component';
 import { ComputerDashboardWrapperComponent } from './components/computer-dashboard/computer-dashboard-wrapper/computer-dashboard-wrapper.component';
 import { CompanyDashboardWrapperComponent } from './components/company-dashboard/company-dashboard-wrapper/company-dashboard-wrapper.component';
-
-import { ComputerDashboardWrapperComponent } from './components/computer-dashboard/computer-dashboard-wrapper/computer-dashboard-wrapper.component';
-import { CompanyDashboardWrapperComponent } from './components/company-dashboard/company-dashboard-wrapper/company-dashboard-wrapper.component';
 import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapper/global-wrapper.component';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 
