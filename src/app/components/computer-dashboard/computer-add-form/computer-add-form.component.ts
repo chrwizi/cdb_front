@@ -11,10 +11,7 @@ import { Company } from 'src/app/models/company.model';
 })
 export class ComputerAddFormComponent implements OnInit {
   
-  constructor(private companyService: CompanyService, private computerService: ComputerService, private fb: FormBuilder) {}
-  
   companies: Array<Company>;
-
   computerAddForm: FormGroup = this.fb.group({
     name: [''],
     introduction: [''],
@@ -22,13 +19,19 @@ export class ComputerAddFormComponent implements OnInit {
     company: ['']
   });
 
+  constructor(
+    private companyService: CompanyService, 
+    private computerService: ComputerService, 
+    private fb: FormBuilder
+  ) {}
+
   ngOnInit(): void {
     this.companyService.getCompanies().subscribe(
       companies => {
-        console.debug('companies ', companies)
+        console.debug('companies', companies)
         this.companies = companies 
       },
-      error => console.debug('There was an error retrieving the companies')
+      error => console.error('There was an error retrieving the companies')
     );
   }
 
@@ -37,8 +40,8 @@ export class ComputerAddFormComponent implements OnInit {
 
     this.computerService.add(this.computerAddForm.value).subscribe(
       success => console.debug('success'),
-      error => console.debug('error')
-    )
+      error => console.error('There was an error adding a new computer')
+    );
   }
 
 }

@@ -16,7 +16,7 @@
             <mat-datepicker #discontinuationPicker></mat-datepicker>
           </mat-form-field>
            
-          <mat-select placeholder="company" [(ngModel)]="computerAddForm.companyId" name="companyId" formControlName="company">
+          <mat-select placeholder="company" name="company" formControlName="company">
             <mat-option *ngFor="let company of this.companies" [value]="company">
               {{company.name}}
             </mat-option>
