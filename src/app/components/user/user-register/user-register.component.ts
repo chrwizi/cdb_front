@@ -9,7 +9,10 @@ import {FormControl, Validators, FormGroup, FormBuilder, ValidatorFn, Validation
 export class UserRegisterComponent implements OnInit {
 
   minPw = 8;
-  formGroup: FormGroup;
+
+  formGroup = new FormGroup({
+    firstName: new FormControl()
+ });
 
   constructor(private formBuilder: FormBuilder) { }
 

@@ -1,4 +1,3 @@
-
 import { Computer } from 'src/app/models/computer.model';
 import { ComputerService } from 'src/app/services/computer/computer.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -14,17 +13,19 @@ export class ComputerTableComponent implements OnInit {
   computers: Computer[];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<Computer>(this.computers);
+  displayedColumns: string[] = ['name', 'introduced', 'discontinued', 'company'];
+
 
   constructor(private computerService: ComputerService){
-    this.dataSource.paginator = this.paginator;
+    //this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
+    //this.dataSource.paginator = this.paginator;
+    this.computerService.getComputers().subscribe( computers => this.computers = computers );
   }
 
 }
+
 
 

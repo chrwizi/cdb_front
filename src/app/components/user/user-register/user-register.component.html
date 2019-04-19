@@ -1,6 +1,12 @@
 <mat-card class="register-container">
 
-    <form class="register-form">
+  
+<div class = cardTitle>
+    Register a new account
+</div>
+
+
+    <form class="register-form" [formGroup]="formGroup">
 
        
         <mat-form-field>
@@ -15,19 +21,19 @@
 
 
         <mat-form-field>
-            <input matInput type="password" placeholder="Password" formControlName="password" (input)="onPasswordInput()">
+            <input matInput type="password" placeholder="Password" formControlName="password" (input)="onPasswordInput()" required>
             <mat-error *ngIf="password.hasError('required')">Password is required</mat-error>
             <mat-error *ngIf="password.hasError('minlength')">Password must have at least {{minPw}} characters</mat-error>
           </mat-form-field>
         
           <mat-form-field>
-            <input matInput type="password" placeholder="Confirm password" formControlName="password2" (input)="onPasswordInput()">
+            <input matInput type="password" placeholder="Confirm password" formControlName="password2" (input)="onPasswordInput()" required>
             <mat-error *ngIf="password2.hasError('required')">Please confirm your password</mat-error>
             <mat-error *ngIf="password2.invalid && !password2.hasError('required')">Passwords don't match</mat-error>
           </mat-form-field>
-      
+          
   
-      <div class="register-field"><button  mat-button>Register</button></div>
+      <div class="register-field"><button  mat-raised-button color="primary">Register</button></div>
       
   
     </form>

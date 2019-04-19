@@ -7,7 +7,6 @@ import {MatDividerModule} from '@angular/material/divider';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input'; 
 import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatIconModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule} from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,13 +23,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatButtonToggleModule,
     MatIconModule,
+    ReactiveFormsModule,
+    MatTableModule,
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
     MatInputModule,
-    FormsModule,
-    ReactiveFormsModule
+    FormsModule
   ],
   exports:[
     MatCardModule,
@@ -42,14 +42,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatButtonToggleModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
     MatInputModule,
-    FormsModule,
-    ReactiveFormsModule
+    FormsModule
+
   ]
 })
 export class CustomMaterialModule {  }

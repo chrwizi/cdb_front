@@ -1,27 +1,19 @@
-<form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <input matInput placeholder="name" value="">
-  </mat-form-field>
-
-  <!--<mat-form-field>
-    <input matInput [matDatepicker]="introduction" placeholder="title">
-    <mat-datepicker-toggle matSuffix [for]="introduction"></mat-datepicker-toggle>
-    <button matSuffix [matDatepickerToggle]="introduction"></button>
-    <mat-datepicker #introduction></mat-datepicker>
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput [matDatepicker]="discontinuation" placeholder="title">
-    <mat-datepicker-toggle matSuffix [for]="discontinuation"></mat-datepicker-toggle>
-    <button matSuffix [matDatepickerToggle]="discontinuation"></button>
-    <mat-datepicker #discontinuation></mat-datepicker>
-  </mat-form-field>-->
+<span class="searchbar">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Name, company...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    
+  </span>
+  <span class="button">
+    <button mat-raised-button color="primary">Add Computer  <mat-icon>add_to_queue</mat-icon></button>
+  </span>
+  <span class="button">
+    <button mat-raised-button color="accent">Edit Computer  <mat-icon>edit</mat-icon></button>
+  </span>
   
-  <mat-select placeholder="company" [(ngModel)]="selectedValue" name="company">
-    <mat-option *ngFor="let company of companies" [value]="company.id">
-      {{company.name}}
-    </mat-option>
-  </mat-select> 
-
-  <button mat-button>filter</button>
-</form>
+  <span class="button">
+    <button mat-raised-button color="warn">Delete Computer  <mat-icon>delete_forever</mat-icon></button>
+  </span>
+  
