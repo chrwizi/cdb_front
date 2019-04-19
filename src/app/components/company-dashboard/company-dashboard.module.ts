@@ -11,7 +11,15 @@ import { CompanyDashboardWrapperComponent } from './company-dashboard-wrapper/co
 import { CustomMaterialModule } from 'src/app/custom-material/custom-material.module';
 
 @NgModule({
-  declarations: [CompanyCountComponent, CompanyFiltersComponent, CompanyTableComponent, CompanyRowComponent, CompanyAddFormComponent, CompanyUpdateFormComponent, CompanyDeleteFormComponent, CompanyDashboardWrapperComponent],
+  declarations: [
+    CompanyCountComponent, 
+    CompanyFiltersComponent, 
+    CompanyTableComponent, 
+    CompanyRowComponent, 
+    CompanyAddFormComponent, 
+    CompanyUpdateFormComponent, 
+    CompanyDeleteFormComponent, 
+    CompanyDashboardWrapperComponent],
   imports: [
     CommonModule,
     CustomMaterialModule

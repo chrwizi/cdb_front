@@ -1,1 +1,27 @@
-updateform
+<div class="edit-form">
+  <form [formGroup]="computerEditForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input matInput placeholder="name" formControlName="name">
+        </mat-form-field>
+        
+        <mat-form-field>
+          <input matInput [matDatepicker]="introductionPicker" placeholder="Introduction" formControlName="introduced">
+          <mat-datepicker-toggle matSuffix [for]="introductionPicker"></mat-datepicker-toggle>
+          <mat-datepicker #introductionPicker></mat-datepicker>
+        </mat-form-field>
+      
+        <mat-form-field>
+          <input matInput [matDatepicker]="discontinuationPicker" placeholder="Discontinuation" formControlName="discontinued">
+          <mat-datepicker-toggle matSuffix [for]="discontinuationPicker"></mat-datepicker-toggle>
+          <mat-datepicker #discontinuationPicker></mat-datepicker>
+        </mat-form-field>
+         
+        <mat-select placeholder="company" name="company" formControlName="company">
+          <mat-option *ngFor="let company of this.companies" [value]="company.id">
+            {{company.name}}
+          </mat-option>
+        </mat-select> 
+      
+        <button type="submit" [disabled]="!computerEditForm.valid" mat-button>Submit</button>
+  </form>
+</div>

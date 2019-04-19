@@ -1,3 +1,4 @@
+import { RouterModule, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComputerDashboardWrapperComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  eventHandler(){
+    console.debug('it works');
   }
 
 }
