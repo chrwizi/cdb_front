@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { MatDatepicker } from '@angular/material';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-computer-filters',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComputerFiltersComponent implements OnInit {
 
+  @Output()
+  fitersChanged: EventEmitter = new EventEmitter();
+
+  filterForm = new FormGroup({
+    name: new FormControl,
+    company: new FormGroup({
+      id: new FormControl,
+      name: new FormControl
+    })
+  });
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() : void {
+  }
+  
+  onSubmit() : void {
+    this.fitersChanged.emit(null);
   }
 
 }

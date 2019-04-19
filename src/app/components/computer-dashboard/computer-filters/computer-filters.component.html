@@ -1,3 +1,27 @@
-<p>
-  computer-filters works!
-</p>
+<form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="name" value="">
+  </mat-form-field>
+
+  <!--<mat-form-field>
+    <input matInput [matDatepicker]="introduction" placeholder="title">
+    <mat-datepicker-toggle matSuffix [for]="introduction"></mat-datepicker-toggle>
+    <button matSuffix [matDatepickerToggle]="introduction"></button>
+    <mat-datepicker #introduction></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="discontinuation" placeholder="title">
+    <mat-datepicker-toggle matSuffix [for]="discontinuation"></mat-datepicker-toggle>
+    <button matSuffix [matDatepickerToggle]="discontinuation"></button>
+    <mat-datepicker #discontinuation></mat-datepicker>
+  </mat-form-field>-->
+  
+  <mat-select placeholder="company" [(ngModel)]="selectedValue" name="company">
+    <mat-option *ngFor="let company of companies" [value]="company.id">
+      {{company.name}}
+    </mat-option>
+  </mat-select> 
+
+  <button mat-button>filter</button>
+</form>

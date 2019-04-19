@@ -1,26 +1,23 @@
 <div class="add-form">
     <form [formGroup]="computerAddForm" (ngSubmit)="onSubmit()">
           <mat-form-field>
-            <input matInput placeholder="name" value="name">
+            <input matInput placeholder="name" formControlName="name">
           </mat-form-field>
           
-         <!--  <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="title">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <button matSuffix [matDatepickerToggle]="introductionToggle"></button>
-            <mat-datepicker #picker></mat-datepicker>
+          <mat-form-field>
+            <input matInput [matDatepicker]="introductionPicker" placeholder="Introduction" formControlName="introduction">
+            <mat-datepicker-toggle matSuffix [for]="introductionPicker"></mat-datepicker-toggle>
+            <mat-datepicker #introductionPicker></mat-datepicker>
           </mat-form-field>
         
           <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="title">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <button matSuffix [matDatepickerToggle]="discontinuationToggle"></button>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field> -->
+            <input matInput [matDatepicker]="discontinuationPicker" placeholder="Discontinuation" formControlName="discontinuation">
+            <mat-datepicker-toggle matSuffix [for]="discontinuationPicker"></mat-datepicker-toggle>
+            <mat-datepicker #discontinuationPicker></mat-datepicker>
+          </mat-form-field>
            
-
-          <mat-select placeholder="company" [(ngModel)]="computerAddForm.companyId" name="companyId">
-            <mat-option *ngFor="let company of companies" [value]="company.id">
+          <mat-select placeholder="company" [(ngModel)]="computerAddForm.companyId" name="companyId" formControlName="company">
+            <mat-option *ngFor="let company of this.companies" [value]="company">
               {{company.name}}
             </mat-option>
           </mat-select> 

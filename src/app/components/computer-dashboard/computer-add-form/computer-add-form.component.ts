@@ -1,5 +1,7 @@
+import { CompanyService } from './../../../services/company/company.service';
+import { ComputerService } from './../../../services/computer/computer.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Company } from 'src/app/models/company.model';
 
 @Component({
@@ -9,23 +11,34 @@ import { Company } from 'src/app/models/company.model';
 })
 export class ComputerAddFormComponent implements OnInit {
   
+  constructor(private companyService: CompanyService, private computerService: ComputerService, private fb: FormBuilder) {}
+  
   companies: Array<Company>;
 
-  computerAddForm: FormGroup = new FormGroup({
-    name: new FormControl('', Validators.required),
-    discontinued: new FormControl(''),
-    introduced: new FormControl(''),
-    companyId: new FormControl('')
+  computerAddForm: FormGroup = this.fb.group({
+    name: [''],
+    introduction: [''],
+    discontinuation: [''],
+    company: ['']
   });
 
-  constructor() { }
-
   ngOnInit(): void {
-    this.companies = [];
+    this.companyService.getCompanies().subscribe(
+      companies => {
+        console.debug('companies ', companies)
+        this.companies = companies 
+      },
+      error => console.debug('There was an error retrieving the companies')
+    );
   }
 
   onSubmit(): void {
-    console.log('it works!');
+    console.debug(this.computerAddForm.value);
+
+    this.computerService.add(this.computerAddForm.value).subscribe(
+      success => console.debug('success'),
+      error => console.debug('error')
+    )
   }
 
 }

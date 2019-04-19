@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { CustomMaterialModule } from './../../custom-material/custom-material.module';
 import { ComputerDeleteFormComponent } from './computer-delete-form/computer-delete-form.component';
 import { NgModule } from '@angular/core';
@@ -24,7 +25,8 @@ import { ComputerDashboardWrapperComponent } from './computer-dashboard-wrapper/
     ComputerDashboardWrapperComponent],
   imports: [
     CommonModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    RouterModule
   ],
   exports: [
     ComputerCountComponent, 
