@@ -1,3 +1,5 @@
+import { RouterModule } from '@angular/router';
+import { CustomMaterialModule } from './../../custom-material/custom-material.module';
 import { ComputerDeleteFormComponent } from './computer-delete-form/computer-delete-form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,17 +10,33 @@ import { ComputerRowComponent } from './computer-row/computer-row.component';
 import { ComputerAddFormComponent } from './computer-add-form/computer-add-form.component';
 import { ComputerUpdateFormComponent } from './computer-update-form/computer-update-form.component';
 import { ComputerDashboardWrapperComponent } from './computer-dashboard-wrapper/computer-dashboard-wrapper.component';
-import { CustomMaterialModule } from 'src/app/custom-material/custom-material.module';
+
 
 
 @NgModule({
-  declarations: [ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerRowComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent, ComputerDashboardWrapperComponent],
+  declarations: [
+    ComputerCountComponent, 
+    ComputerFiltersComponent, 
+    ComputerTableComponent, 
+    ComputerRowComponent, 
+    ComputerAddFormComponent, 
+    ComputerUpdateFormComponent, 
+    ComputerDeleteFormComponent, 
+    ComputerDashboardWrapperComponent],
   imports: [
     CommonModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    RouterModule
   ],
   exports: [
-    ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerRowComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent, ComputerDashboardWrapperComponent
+    ComputerCountComponent, 
+    ComputerFiltersComponent, 
+    ComputerTableComponent, 
+    ComputerRowComponent, 
+    ComputerAddFormComponent, 
+    ComputerUpdateFormComponent, 
+    ComputerDeleteFormComponent, 
+    ComputerDashboardWrapperComponent
   ]
 })
 export class ComputerDashboardModule { }

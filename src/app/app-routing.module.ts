@@ -1,15 +1,16 @@
+import { CompanyDeleteFormComponent } from './components/company-dashboard/company-delete-form/company-delete-form.component';
+import { CompanyUpdateFormComponent } from './components/company-dashboard/company-update-form/company-update-form.component';
+import { CompanyAddFormComponent } from './components/company-dashboard/company-add-form/company-add-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import {ComputerAddFormComponent} from './components/computer-dashboard/computer-add-form/computer-add-form.component';
 import {ComputerDeleteFormComponent} from './components/computer-dashboard/computer-delete-form/computer-delete-form.component';
-import {ComputerTableComponent} from './components/computer-dashboard/computer-table/computer-table.component';
 import {UserLoginComponent} from './components/user/user-login/user-login.component';
 import {ComputerUpdateFormComponent} from './components/computer-dashboard/computer-update-form/computer-update-form.component';
 import { CompanyTableComponent } from './components/company-dashboard/company-table/company-table.component';
-import {ComputerDashboardModule} from './components/computer-dashboard/computer-dashboard.module';
-
-
+import { ComputerDashboardWrapperComponent } from './components/computer-dashboard/computer-dashboard-wrapper/computer-dashboard-wrapper.component';
+import { CompanyDashboardWrapperComponent } from './components/company-dashboard/company-dashboard-wrapper/company-dashboard-wrapper.component';
 
 import { ComputerDashboardWrapperComponent } from './components/computer-dashboard/computer-dashboard-wrapper/computer-dashboard-wrapper.component';
 import { CompanyDashboardWrapperComponent } from './components/company-dashboard/company-dashboard-wrapper/company-dashboard-wrapper.component';
@@ -20,31 +21,41 @@ const routes: Routes = [
 
   {
     path: 'computers',
-
     component: ComputerDashboardWrapperComponent
-
   },
 
   {
     path: 'companies',
     component: CompanyDashboardWrapperComponent
   },
-
   {
     path: 'computers/add',
     component: ComputerAddFormComponent
   },
-
-  {
-    path: 'computers/delete/:id',
-    component: ComputerDeleteFormComponent
-  },
-
   {
     path: 'computers/edit/:id',
     component: ComputerUpdateFormComponent
   },
-
+  {
+    path: 'computers/delete/:id',
+    component: ComputerDeleteFormComponent
+  },
+  {
+    path: 'companies',
+    component: CompanyDashboardWrapperComponent
+  },
+  {
+    path: 'companies/add',
+    component: CompanyAddFormComponent
+  },
+  {
+    path: 'companies/edit/:id',
+    component: CompanyUpdateFormComponent
+  },
+  {
+    path: 'companies/delete/:id',
+    component: CompanyDeleteFormComponent
+  },
   {
     path: 'login',
     component: UserLoginComponent

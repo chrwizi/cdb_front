@@ -1,3 +1,7 @@
-<p>
-  company-update-form works!
-</p>
+<form [formGroup]="companyEditForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="name" value="" formControlName="name">
+    </mat-form-field>
+    
+    <button mat-button type="submit" [disabled]="!companyEditForm.valid">submit</button>
+</form>

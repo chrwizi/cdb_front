@@ -8,11 +8,21 @@ import { CompanyAddFormComponent } from './company-add-form/company-add-form.com
 import { CompanyUpdateFormComponent } from './company-update-form/company-update-form.component';
 import { CompanyDeleteFormComponent } from './company-delete-form/company-delete-form.component';
 import { CompanyDashboardWrapperComponent } from './company-dashboard-wrapper/company-dashboard-wrapper.component';
+import { CustomMaterialModule } from 'src/app/custom-material/custom-material.module';
 
 @NgModule({
-  declarations: [CompanyCountComponent, CompanyFiltersComponent, CompanyTableComponent, CompanyRowComponent, CompanyAddFormComponent, CompanyUpdateFormComponent, CompanyDeleteFormComponent, CompanyDashboardWrapperComponent],
+  declarations: [
+    CompanyCountComponent, 
+    CompanyFiltersComponent, 
+    CompanyTableComponent, 
+    CompanyRowComponent, 
+    CompanyAddFormComponent, 
+    CompanyUpdateFormComponent, 
+    CompanyDeleteFormComponent, 
+    CompanyDashboardWrapperComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    CustomMaterialModule
   ],
   exports: [
     CompanyCountComponent, CompanyFiltersComponent, CompanyTableComponent, CompanyRowComponent, CompanyAddFormComponent, CompanyUpdateFormComponent, CompanyDeleteFormComponent, CompanyDashboardWrapperComponent

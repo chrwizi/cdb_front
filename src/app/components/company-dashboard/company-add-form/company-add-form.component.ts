@@ -1,3 +1,5 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CompanyService } from 'src/app/services/company/company.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyAddFormComponent implements OnInit {
 
-  constructor() { }
+  companyAddForm : FormGroup = this.fb.group({
+    name: ['', Validators.required]
+  });
 
-  ngOnInit() {
+  constructor(
+    private companyService: CompanyService,
+    private fb: FormBuilder
+  ) { }
+
+  ngOnInit() : void {
+  
+  }
+
+  onSubmit() : void {
+    this.companyService.add(this.companyAddForm.value).subscribe(
+      success => console.debug('Company added'),
+      error => console.error('There was an error adding the company')
+    );
   }
 
 }

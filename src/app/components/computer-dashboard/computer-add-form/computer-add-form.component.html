@@ -1,3 +1,30 @@
-<p>
-  computer-add-form works!
-</p>
+<div class="add-form">
+    <form [formGroup]="computerAddForm" (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <input matInput placeholder="name" formControlName="computerName">
+          </mat-form-field>
+          
+          <mat-form-field>
+            <input matInput [matDatepicker]="introductionPicker" placeholder="Introduction" formControlName="introduced">
+            <mat-datepicker-toggle matSuffix [for]="introductionPicker"></mat-datepicker-toggle>
+            <mat-datepicker #introductionPicker></mat-datepicker>
+          </mat-form-field>
+        
+          <mat-form-field>
+            <input matInput [matDatepicker]="discontinuationPicker" placeholder="Discontinuation" formControlName="discontinued">
+            <mat-datepicker-toggle matSuffix [for]="discontinuationPicker"></mat-datepicker-toggle>
+            <mat-datepicker #discontinuationPicker></mat-datepicker>
+          </mat-form-field>
+           
+          <mat-select placeholder="company" name="company" formControlName="companyId">
+            <mat-option *ngFor="let company of this.companies" [value]="company.id">
+              {{company.name}}
+            </mat-option>
+          </mat-select> 
+        
+          <button type="submit" [disabled]="!computerAddForm.valid" mat-button>Submit</button>
+    </form>
+</div>
+
+
+
