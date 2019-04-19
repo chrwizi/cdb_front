@@ -6,8 +6,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider'; 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input'; 
-import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule } from '@angular/material';
-
+import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatIconModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule} from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatFormField
     MatTableModule,
     MatPaginatorModule,
     MatButtonToggleModule,
+    MatIconModule,
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -40,6 +41,8 @@ import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatFormField
     MatTableModule,
     MatPaginatorModule,
     MatButtonToggleModule,
+    MatIconModule,
+    ReactiveFormsModule
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,

@@ -1,3 +1,4 @@
+
 import { Computer } from 'src/app/models/computer.model';
 import { ComputerService } from 'src/app/services/computer/computer.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -21,8 +22,9 @@ export class ComputerTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.computerService.getComputers().subscribe(
-      computers => this.computers = computers
-    );
+    this.dataSource.paginator = this.paginator;
   }
+
 }
+
+

@@ -1,6 +1,8 @@
-<div class="buttons">
-    <a mat-button [routerLink]="['computers/add']">+</a>
-</div>
+
+<app-computer-filters></app-computer-filters>
+<!--<app-computer-add-form></app-computer-add-form>
+<app-computer-update-form></app-computer-update-form>
+<app-computer-delete-form></app-computer-delete-form>-->
 
 <app-computer-filters (filtersChanged)="this.eventHandler($event)"></app-computer-filters>
 <app-computer-table></app-computer-table>
