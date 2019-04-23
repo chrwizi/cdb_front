@@ -2,6 +2,7 @@ import { Computer } from 'src/app/models/computer.model';
 import { ComputerService } from 'src/app/services/computer/computer.service';
 import { Component, OnInit, ViewChild, Input, SimpleChanges } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-computer-table',
@@ -23,7 +24,7 @@ export class ComputerTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = ['name', 'introduced', 'discontinued', 'company', 'id'];
 
-  constructor(private computerService: ComputerService){
+  constructor(private computerService: ComputerService, private router:Router){
     this.dataSource.paginator = this.paginator;
   }
 
@@ -38,6 +39,10 @@ export class ComputerTableComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     console.debug('Filter method triggered with ', this.filter);
     this.computerService.getComputers().subscribe( computers => this.computers = computers);
+  }
+
+  onComputerEdit(id :String):void{
+    this.router.navigate(['computers/edit/'+id]);
   }
 
 }

@@ -10,3 +10,9 @@ th{
 .tableC{
   margin: 20px;
 }
+
+.companyName:hover{
+  text-decoration: underline; 
+  
+     cursor: pointer;
+}

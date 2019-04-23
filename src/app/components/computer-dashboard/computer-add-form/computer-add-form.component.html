@@ -26,7 +26,7 @@
 
           <mat-form-field>
               <mat-label>Select a company</mat-label>
-              <mat-select placeholder="Select a company" name="company" formControlName="companyId">
+              <mat-select placeholder="Company" name="company" formControlName="companyId">
                   <mat-option *ngFor="let company of this.companies" [value]="company.id">
                     {{company.name}}
                   </mat-option>

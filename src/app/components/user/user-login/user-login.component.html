@@ -1,5 +1,16 @@
 <div class="app-user-login">
-  <mat-card class="login-container">
+<mat-card class="login-container">
+
+    <div class = cardTitle>
+Login to your account
+    </div>
+
+  <form class="login-form" [formGroup]="myGroup"> 
+
+    <div class="field"><mat-form-field [hideRequiredMarker]=true >
+        <input formControlName="username" matInput placeholder="Username" required>
+      </mat-form-field></div>
+    
   
     <div class = cardTitle> Login to your account </div>
   
