@@ -24,7 +24,7 @@ export class ComputerTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   
-  displayedColumns: string[] = ['name', 'introduced', 'discontinued', 'company'];
+  displayedColumns: string[] = ['name', 'introduced', 'discontinued', 'company', 'id'];
 
   constructor(private computerService: ComputerService, private router:Router){
     this.dataSource.paginator = this.paginator;
@@ -39,13 +39,21 @@ export class ComputerTableComponent implements OnInit {
   }
 
   onComputerEdit(id: String): void {
-    this.router.navigate(['computers/edit/'+id]);
+    this.router.navigate(['computers/edit/' + id]);
   }
   
   ngOnChanges(changes: SimpleChanges): void {
-    console.debug('Filter method triggered with ', this.filter);
-    this.computerService.getComputers().subscribe( computers => this.computers = computers);
+    if(changes['filter'] && changes['filter'].previousValue != changes['filter'].currentValue && !changes['filter'].firstChange){
+      console.debug('Filter method triggered with ', this.filter);
+      this.computerService.getComputers().subscribe( 
+        computers => {
+        this.computers = computers;
+        this.dataSource = new MatTableDataSource<Computer>(this.computers);
+        this.dataSource.paginator = this.paginator; 
+      }     
+    );
   }
+}
 }
 
 

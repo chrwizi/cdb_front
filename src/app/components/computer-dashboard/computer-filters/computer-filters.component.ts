@@ -10,13 +10,12 @@ import { EventEmitter } from '@angular/core';
 export class ComputerFiltersComponent implements OnInit {
 
   @Output()
-  fitersChanged: EventEmitter<any> = new EventEmitter<any>();
+  filter: EventEmitter<string> = new EventEmitter();
 
   @Output()
   onDeleteChanged = new EventEmitter<boolean>();
 
   deleteMode: boolean = false;
-  filter: EventEmitter<string> = new EventEmitter();
 
   filterForm: FormGroup = this.fb.group({
    filter: ['']
@@ -31,7 +30,7 @@ export class ComputerFiltersComponent implements OnInit {
   
   onSubmit() : void {
     console.debug("Computer filter component called wrapper with", this.filterForm.value);
-    this.filter.emit(this.filterForm.value);
+    this.filter.emit(this.filterForm.value.filter);
   }
 
   toggleDelete(): void {
