@@ -21,3 +21,4 @@ export class LoggingService {
     return this.http.post<any>(this.registerUrl, credentials)
   }
 }
+  

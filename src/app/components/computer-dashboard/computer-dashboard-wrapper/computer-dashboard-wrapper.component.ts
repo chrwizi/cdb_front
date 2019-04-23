@@ -12,7 +12,7 @@ export class ComputerDashboardWrapperComponent implements OnInit {
   filter: string = '';
   deleteMode: boolean = false;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
