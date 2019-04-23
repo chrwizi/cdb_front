@@ -9,7 +9,7 @@ import { Validators, FormGroup, FormBuilder, ValidatorFn, ValidationErrors} from
 })
 export class UserRegisterComponent implements OnInit {
 
-  minPw: number = 8;
+  public minPw: number = 8;
 
   registerForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],

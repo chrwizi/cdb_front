@@ -1,3 +1,4 @@
+import { Credentials } from './../../models/credentials.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -12,11 +13,11 @@ export class LoggingService {
 
   constructor(private http: HttpClient) { }
 
-  log(credentials: any): Observable<any> {
+  log(credentials: Credentials): Observable<Credentials> {
     return this.http.post<any>(this.logUrl, credentials);
   }
 
-  register(credentials: any): Observable<any> {
+  register(credentials: Credentials): Observable<Credentials> {
     return this.http.post<any>(this.registerUrl, credentials)
   }
 }

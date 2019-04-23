@@ -23,7 +23,7 @@
         <mat-form-field>
             <input matInput type="password" placeholder="Password" formControlName="password" (input)="onPasswordInput()" required>
             <mat-error *ngIf="this.registerForm.get('password').hasError('required')">Password is required</mat-error>
-            <mat-error *ngIf="this.registerForm.get('password').hasError('minlength')">Password must have at least {{minPw}} characters</mat-error>
+            <mat-error *ngIf="this.registerForm.get('password').hasError('minlength')">Password must have at least {{ this.minPw }} characters</mat-error>
           </mat-form-field>
         
           <mat-form-field>
