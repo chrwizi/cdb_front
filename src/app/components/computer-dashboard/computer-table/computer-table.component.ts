@@ -1,6 +1,6 @@
 import { Computer } from 'src/app/models/computer.model';
 import { ComputerService } from 'src/app/services/computer/computer.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 
 @Component({
@@ -10,10 +10,13 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
 })
 
 export class ComputerTableComponent implements OnInit {
+  @Input()
+  deleteMode: boolean;
+  
   computers: Computer[];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['name', 'introduced', 'discontinued', 'company'];
+  displayedColumns: string[] = ['name', 'introduced', 'discontinued', 'company', 'id'];
 
 
   constructor(private computerService: ComputerService){

@@ -1,2 +1,2 @@
-<app-computer-filters (filtersChanged)="this.eventHandler($event)"></app-computer-filters>
-<app-computer-table></app-computer-table>
+<app-computer-filters (onDeleteChanged)="changeDeleteMode($event)" (filtersChanged)="this.eventHandler($event)"></app-computer-filters>
+<app-computer-table [deleteMode]="deleteMode"></app-computer-table>

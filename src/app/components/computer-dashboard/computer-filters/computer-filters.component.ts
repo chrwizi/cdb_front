@@ -1,7 +1,6 @@
 import { FormGroup, FormControl } from '@angular/forms';
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDatepicker } from '@angular/material';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-computer-filters',
@@ -11,7 +10,12 @@ import { EventEmitter } from 'events';
 export class ComputerFiltersComponent implements OnInit {
 
   @Output()
-  fitersChanged: EventEmitter = new EventEmitter();
+  fitersChanged: EventEmitter<any> = new EventEmitter<any>();
+
+  @Output()
+  onDeleteChanged = new EventEmitter<boolean>();
+
+  deleteMode: boolean = false;
 
   filterForm = new FormGroup({
     name: new FormControl,
@@ -23,11 +27,15 @@ export class ComputerFiltersComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() : void {
+  ngOnInit(): void {
   }
   
-  onSubmit() : void {
+  onSubmit(): void {
     this.fitersChanged.emit(null);
   }
 
+  toggleDelete(): void {
+    this.deleteMode = !this.deleteMode;
+    this.onDeleteChanged.emit(this.deleteMode);
+  }
 }
