@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./company-dashboard-wrapper.component.scss']
 })
 export class CompanyDashboardWrapperComponent implements OnInit {
+  deleteMode: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  
+  changeDeleteMode(deleteMode: boolean) {
+    this.deleteMode = deleteMode;
   }
-
 }

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ComputerService } from 'src/app/services/computer/computer.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-computer-delete-form',
@@ -12,16 +12,18 @@ export class ComputerDeleteFormComponent {
   @Input()
   id: String;
   computerDeleteForm: FormGroup = this.fb.group({});
-  constructor(private computerService: ComputerService, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) { }
+  constructor(private computerService: ComputerService, private fb: FormBuilder, private router: Router) { }
 
   onSubmit() {
-    this.computerService.delete(this.id).subscribe(
-      data => {
-        console.debug('success');
-        this.router.navigateByUrl('/refresh', {skipLocationChange: true}).then(()=>
-        this.router.navigate(["computers"])); 
-      },
-      error => console.error('There was an error deleting a computer')
-    );
+    if(confirm("You are about to delete a computer:")) {
+      this.computerService.delete(this.id).subscribe(
+        data => {
+          console.debug('success');
+          this.router.navigateByUrl('/refresh', {skipLocationChange: true}).then(()=>
+          this.router.navigate(["computers"], { queryParams: { refresh: 1 }})); 
+        },
+        error => console.error('There was an error deleting a computer')
+      );
+    }
   }
 }

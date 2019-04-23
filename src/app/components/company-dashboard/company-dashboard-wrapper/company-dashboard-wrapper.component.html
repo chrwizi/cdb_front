@@ -1,3 +1,3 @@
-<app-company-filters></app-company-filters>
+<app-company-filters (onDeleteChanged)="changeDeleteMode($event)"></app-company-filters>
 
-<app-company-table></app-company-table>
+<app-company-table [deleteMode]="deleteMode"></app-company-table>

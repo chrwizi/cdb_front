@@ -2,6 +2,7 @@ import { Computer } from 'src/app/models/computer.model';
 import { ComputerService } from 'src/app/services/computer/computer.service';
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-computer-table',
@@ -19,13 +20,18 @@ export class ComputerTableComponent implements OnInit {
   displayedColumns: string[] = ['name', 'introduced', 'discontinued', 'company', 'id'];
 
 
-  constructor(private computerService: ComputerService){
+  constructor(private computerService: ComputerService, private route: ActivatedRoute){
     //this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(): void {
     //this.dataSource.paginator = this.paginator;
-    this.computerService.getComputers().subscribe( computers => this.computers = computers );
+    if(this.route.snapshot.queryParamMap.get("refresh") === "1"){
+      this.deleteMode = true;
+    }
+    this.computerService.getComputers().subscribe(
+      computers => this.computers = computers
+    );
   }
 
 }
