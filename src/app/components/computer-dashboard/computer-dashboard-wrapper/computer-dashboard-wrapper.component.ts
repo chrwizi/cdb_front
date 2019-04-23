@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComputerDashboardWrapperComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
   }
