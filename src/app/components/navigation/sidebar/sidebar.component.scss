@@ -7,12 +7,18 @@
   z-index: 1; 
   top: 0;
   left: 0;
-  background-color: #3e3f48;
+  background-color: #141415;
   overflow-x: hidden; 
-  padding-top: 75px;
+  padding-top: 63px;
   color:white;
+  padding-right: 2px;
 }
 
 mat-button-toggle-group{
   width: 100%;
+  
+}
+
+.mat-button-toggle{
+  background-color: #141415;
 }

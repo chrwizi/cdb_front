@@ -1,9 +1,23 @@
-td{
+.computerName:hover{
+    text-decoration: underline; 
+    
+       cursor: pointer;
+}
+
+table {
     width: 100%;
+    
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
 
-}
-
-.tableC{
-    margin: 20px;
-
-}
+  .mat-elevation-z8{
+      margin:15px;
+  }
