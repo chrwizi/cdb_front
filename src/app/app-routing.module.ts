@@ -20,7 +20,6 @@ const routes: Routes = [
     path: 'computers',
     component: ComputerDashboardWrapperComponent
   },
-
   {
     path: 'companies',
     component: CompanyDashboardWrapperComponent
