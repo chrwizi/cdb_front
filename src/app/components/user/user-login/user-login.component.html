@@ -1,24 +1,23 @@
-<mat-card class="login-container">
-
-    <div class = cardTitle>
-Login to your account
-    </div>
-
-  <form class="login-form" [formGroup]="myGroup"> 
-
-    <div class="field"><mat-form-field [hideRequiredMarker]=true >
-        <input matInput placeholder="Username" required>
-      </mat-form-field></div>
-    
+<div class="app-user-login">
+  <mat-card class="login-container">
   
-    <div class="field"><mat-form-field [hideRequiredMarker]=true >
-        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required>
-        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-      </mat-form-field></div>
+    <div class = cardTitle> Login to your account </div>
+  
+    <form class="login-form" [formGroup]="loggingForm" (ngSubmit)="onSubmit()"> 
+  
+      <div class="field"><mat-form-field [hideRequiredMarker]=true >
+          <input matInput placeholder="Username" formControlName="username" required>
+        </mat-form-field></div>
+      
     
-
-    <div class="login-field"><button  mat-raised-button color="primary">Login</button></div>
-    
-
-  </form>
-</mat-card>
+      <div class="field"><mat-form-field [hideRequiredMarker]=true >
+          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        </mat-form-field></div>
+      
+  
+      <div class="login-field"><button type="submit" mat-raised-button color="primary" [disabled]="this.loggingForm.invalid">Login</button></div>
+      
+    </form>
+  </mat-card>
+</div>

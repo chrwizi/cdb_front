@@ -1,5 +1,6 @@
+import { LoggingService } from './../../../services/logging/logging.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-login',
@@ -8,15 +9,25 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class UserLoginComponent implements OnInit {
 
-  formGroup = new FormGroup({
-   
- });
-
   hide = true;
+  loggingForm: FormGroup = this.fb.group({
+    username: ['', Validators.required],
+    password: ['', Validators.required]
+  })
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder,
+    private loggingService: LoggingService
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+  }
+
+  onSubmit(): void {
+    this.loggingService.log(this.loggingForm.value).subscribe(
+      success => console.debug('success'),
+      error => console.debug('error')
+    );
   }
 
 }
