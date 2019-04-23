@@ -6,14 +6,19 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './computer-dashboard-wrapper.component.html',
   styleUrls: ['./computer-dashboard-wrapper.component.scss']
 })
+
 export class ComputerDashboardWrapperComponent implements OnInit {
+
+  filter: string = '';
   deleteMode: boolean = false;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
-  eventHandler(){
-    console.debug('it works');
+  refresh(filter): void {
+    console.debug("Wrapper received", filter)
+    this.filter = filter;
   }
 
   changeDeleteMode(deleteMode: boolean) {

@@ -1,7 +1,14 @@
 <div class="edit-form">
-  <form [formGroup]="computerEditForm" (ngSubmit)="onSubmit()">
+
+    <mat-card class="computer-container">
+
+        <div class = cardTitle>
+      Update computer
+        </div>
+
+  <form class="field" [formGroup]="computerEditForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
-          <input matInput placeholder="name" formControlName="name">
+          <input matInput placeholder="Name" formControlName="name" required>
         </mat-form-field>
         
         <mat-form-field>
@@ -16,12 +23,16 @@
           <mat-datepicker #discontinuationPicker></mat-datepicker>
         </mat-form-field>
          
-        <mat-select placeholder="company" name="company" formControlName="company">
-          <mat-option *ngFor="let company of this.companies" [value]="company.id">
-            {{company.name}}
-          </mat-option>
-        </mat-select> 
+        <mat-form-field>
+            <mat-label>Select a company</mat-label>
+            <mat-select placeholder="Select a company" name="company" formControlName="companyId">
+                <mat-option *ngFor="let company of this.companies" [value]="company.id">
+                  {{company.name}}
+                </mat-option>
+              </mat-select> 
+        </mat-form-field>
       
-        <button type="submit" [disabled]="!computerEditForm.valid" mat-button>Submit</button>
+        <button class="computer-field" type="submit" [disabled]="!computerEditForm.valid" mat-raised-button color="primary">Update</button>
   </form>
+</mat-card>
 </div>

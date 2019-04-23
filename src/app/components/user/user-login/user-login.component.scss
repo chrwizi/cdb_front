@@ -2,7 +2,7 @@
     max-width: 300px;   
     padding-top: 20px;
     text-align: center;
-    margin-left: 150px;
+    margin:auto;
   }
 
   .field{
@@ -14,5 +14,8 @@
 }
 
 .login-field{
-margin-top : 15px;
+margin-top : 25px;
+}
+mat-form-field{
+  width: 100%;
 }
