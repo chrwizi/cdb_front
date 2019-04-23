@@ -1,5 +1,5 @@
-import { RouterModule, ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-computer-dashboard-wrapper',
@@ -7,14 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./computer-dashboard-wrapper.component.scss']
 })
 export class ComputerDashboardWrapperComponent implements OnInit {
+  @Output()
+  filterChanged: EventEmitter<string> = new EventEmitter();
+  filter: string = '';
   deleteMode: boolean = false;
+
   constructor(private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  eventHandler(){
-    console.debug('it works');
+  refresh($event): void {
+    console.debug("Wrapper received", $event)
+    this.filter = $event.filter;
   }
 
   changeDeleteMode(deleteMode: boolean) {
