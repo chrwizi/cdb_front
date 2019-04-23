@@ -1,7 +1,17 @@
-<form [formGroup]="companyEditForm" (ngSubmit)="onSubmit()">
-    <mat-form-field>
-      <input matInput placeholder="name" value="" formControlName="name">
-    </mat-form-field>
-    
-    <button mat-button type="submit" [disabled]="!companyEditForm.valid">submit</button>
-</form>
+<div class="edit-form">
+
+    <mat-card class="company-container">
+
+        <div class = cardTitle>
+      Update company
+        </div>
+
+  <form class="field" [formGroup]="companyEditForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+          <input matInput placeholder="Name" value="" formControlName="name" required>
+        </mat-form-field>
+        
+        <button class="company-field" type="submit" [disabled]="!companyEditForm.valid" mat-raised-button color="primary">Update</button>
+  </form>
+</mat-card>
+</div>

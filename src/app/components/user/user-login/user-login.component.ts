@@ -9,11 +9,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class UserLoginComponent implements OnInit {
 
-  hide = true;
+  hide: boolean = true;
   loggingForm: FormGroup = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required]
-  })
+  });
 
   constructor(
     private fb: FormBuilder,
