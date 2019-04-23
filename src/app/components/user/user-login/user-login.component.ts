@@ -1,6 +1,6 @@
 import { LoggingService } from './../../../services/logging/logging.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-login',
@@ -11,8 +11,8 @@ export class UserLoginComponent implements OnInit {
 
   hide = true;
   loggingForm: FormGroup = this.fb.group({
-    username: [''],
-    password: ['']
+    username: ['', Validators.required],
+    password: ['', Validators.required]
   })
 
   constructor(

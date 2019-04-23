@@ -28,7 +28,10 @@ export class UserRegisterComponent implements OnInit {
 
   onSubmit() : void {
     console.debug('Register', this.registerForm.value);
-    this.loggingService.register(this.registerForm.value)
+    this.loggingService.register(this.registerForm.value).subscribe(
+      success => console.debug('success'),
+      error => console.error('There was an error logging in.')
+    )
   }
 
   onPasswordInput(): void {
