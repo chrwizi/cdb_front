@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { Company } from 'src/app/models/company.model';
 import { CompanyService } from 'src/app/services/company/company.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatPaginator } from '@angular/material';
 import { MatTable } from '@angular/material';
 
@@ -22,7 +22,7 @@ export class CompanyTableComponent implements OnInit{
   displayedColumns: string[] = ['name'];
 
 
-  constructor(private companyService: CompanyService) {
+  constructor(private companyService: CompanyService, private router: Router) {
     
   }
 
@@ -32,5 +32,9 @@ export class CompanyTableComponent implements OnInit{
     this.companyService.getCompanies().subscribe(
        companies => this.companies = companies
    );
+  }
+
+  onCompanyEdit(id :String):void{
+    this.router.navigate(['companies/edit/'+id]);
   }
 }

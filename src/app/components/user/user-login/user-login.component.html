@@ -7,7 +7,7 @@ Login to your account
   <form class="login-form" [formGroup]="myGroup"> 
 
     <div class="field"><mat-form-field [hideRequiredMarker]=true >
-        <input matInput placeholder="Username" required>
+        <input formControlName="username" matInput placeholder="Username" required>
       </mat-form-field></div>
     
   

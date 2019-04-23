@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-user-login',
@@ -8,15 +8,18 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class UserLoginComponent implements OnInit {
 
-  formGroup = new FormGroup({
-   
+  myGroup = new FormGroup({
+    username: new FormControl()
  });
 
   hide = true;
 
-  constructor() { }
+  
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    
   }
 
 }

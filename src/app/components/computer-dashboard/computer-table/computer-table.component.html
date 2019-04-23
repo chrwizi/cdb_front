@@ -5,7 +5,7 @@
       <!-- Name Column -->
     <ng-container matColumnDef="name" cdkColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell class="computerName" *matCellDef="let computer"> {{computer.name}} </td>
+      <td mat-cell class="computerName" *matCellDef="let computer" (click)='onComputerEdit(computer.id)'> {{computer.name}} </td>
     </ng-container>
 
     <!-- Introduced Column -->
