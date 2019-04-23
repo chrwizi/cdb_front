@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./computer-dashboard-wrapper.component.scss']
 })
 export class ComputerDashboardWrapperComponent implements OnInit {
-
+  deleteMode: boolean = false;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -17,4 +17,7 @@ export class ComputerDashboardWrapperComponent implements OnInit {
     console.debug('it works');
   }
 
+  changeDeleteMode(deleteMode: boolean) {
+    this.deleteMode = deleteMode;
+  }
 }
