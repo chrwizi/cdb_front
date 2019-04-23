@@ -7,11 +7,16 @@ import { Injectable } from '@angular/core';
 })
 export class LoggingService {
 
-  private url = 'http://10.0.1.14:9000/projetCdb/api/users';
+  private logUrl = 'http://10.0.1.14:9000/projetCdb/api/users';
+  private registerUrl = 'http://10.0.1.14:9000/projetCdb/api/users';
 
   constructor(private http: HttpClient) { }
 
   log(credentials: any): Observable<any> {
-    return this.http.post<any>(this.url, credentials);
+    return this.http.post<any>(this.logUrl, credentials);
+  }
+
+  register(credentials: any): Observable<any> {
+    return this.http.post<any>(this.registerUrl, credentials)
   }
 }

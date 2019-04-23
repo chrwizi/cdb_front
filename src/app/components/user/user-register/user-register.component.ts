@@ -1,5 +1,6 @@
+import { LoggingService } from './../../../services/logging/logging.service';
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators, FormGroup, FormBuilder, ValidatorFn, ValidationErrors} from '@angular/forms';
+import { Validators, FormGroup, FormBuilder, ValidatorFn, ValidationErrors} from '@angular/forms';
 
 @Component({
   selector: 'app-user-register',
@@ -8,46 +9,45 @@ import {FormControl, Validators, FormGroup, FormBuilder, ValidatorFn, Validation
 })
 export class UserRegisterComponent implements OnInit {
 
-  minPw = 8;
+  minPw: number = 8;
 
-  formGroup = new FormGroup({
-    firstName: new FormControl()
- });
+  registerForm: FormGroup = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    username: ['', Validators.required],
+    password: ['', [Validators.required, Validators.minLength(this.minPw)]],
+    password2: ['', [Validators.required]]
+  }, {validator: passwordMatchValidator});
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private loggingService: LoggingService
+  ) { }
 
-  ngOnInit() {
-    this.formGroup = this.formBuilder.group({
-      password: ['', [Validators.required, Validators.minLength(this.minPw)]],
-      password2: ['', [Validators.required]]
-    }, {validator: passwordMatchValidator});
+  ngOnInit(): void {
   }
 
-  /* Shorthands for form controls (used from within template) */
-  get password() { return this.formGroup.get('password'); }
-  get password2() { return this.formGroup.get('password2'); }
-
-  /* Called on each input in either password field */
-  onPasswordInput() {
-    if (this.formGroup.hasError('passwordMismatch'))
-      this.password2.setErrors([{'passwordMismatch': true}]);
-    else
-      this.password2.setErrors(null);
+  onSubmit() : void {
+    console.debug('Register', this.registerForm.value);
+    this.loggingService.register(this.registerForm.value)
   }
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+  onPasswordInput(): void {
+    this.registerForm.controls.password.hasError('passwordMismatch') 
+    ? this.registerForm.get('password2').setErrors([{'passwordMismatch': true}])
+    : this.registerForm.get('password2').setErrors(null);
+  }
 
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
+  getErrorMessage(): string {
+    return this.registerForm.controls.email.hasError('required') ? 'You must enter a value' :
+        this.registerForm.get('email').hasError('email') ? 'Not a valid email' :
             '';
-  }
+  } 
 
 }
 
 export const passwordMatchValidator: ValidatorFn = (formGroup: FormGroup): ValidationErrors | null => {
-  if (formGroup.get('password').value === formGroup.get('password2').value)
-    return null;
-  else
+  if (formGroup.get('password').value !== formGroup.get('password2').value){
     return {passwordMismatch: true};
+  }
+  return null;
 };
