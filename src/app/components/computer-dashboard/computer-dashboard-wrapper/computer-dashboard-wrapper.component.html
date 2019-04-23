@@ -1,2 +1,2 @@
-<app-computer-filters (filtersChanged)="this.eventHandler($event)"></app-computer-filters>
-<app-computer-table></app-computer-table>
+<app-computer-filters (filter)="refresh($event)"></app-computer-filters>
+<app-computer-table [filter]="filter"></app-computer-table>

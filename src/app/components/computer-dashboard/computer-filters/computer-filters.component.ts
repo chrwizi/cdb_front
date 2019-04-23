@@ -1,7 +1,6 @@
-import { FormGroup, FormControl } from '@angular/forms';
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { MatDatepicker } from '@angular/material';
-import { EventEmitter } from 'events';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-computer-filters',
@@ -11,23 +10,22 @@ import { EventEmitter } from 'events';
 export class ComputerFiltersComponent implements OnInit {
 
   @Output()
-  fitersChanged: EventEmitter = new EventEmitter();
+  filter: EventEmitter<string> = new EventEmitter();
 
-  filterForm = new FormGroup({
-    name: new FormControl,
-    company: new FormGroup({
-      id: new FormControl,
-      name: new FormControl
-    })
+  filterForm: FormGroup = this.fb.group({
+   filter: ['']
   });
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() : void {
   }
   
   onSubmit() : void {
-    this.fitersChanged.emit(null);
+    console.debug("Computer filter component called wrapper with", this.filterForm.value);
+    this.filter.emit(this.filterForm.value);
   }
 
 }
