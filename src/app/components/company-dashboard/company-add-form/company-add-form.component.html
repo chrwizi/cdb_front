@@ -1,20 +1,21 @@
-
-<div class="edit-form">
-
-    <mat-card class="company-container">
-
-        <div class = cardTitle>
-      Add company
-        </div>
-
-  <form class="field" [formGroup]="companyAddForm" (ngSubmit)="onSubmit()">
-      <mat-form-field>
-          <input matInput placeholder="Name" value="" formControlName="name" required>
-        </mat-form-field>
-        
-        <button class="company-field" type="button" mat-raised-button color="error" routerLink="/companies" routerLinkActive="active">Cancel</button>
-
-        <button class="company-field" type="submit" [disabled]="!companyAddForm.valid" mat-raised-button color="primary">Add</button>
-  </form>
-</mat-card>
+<div class="app-company-add-form">
+  <div class="edit-form">
+  
+      <mat-card class="company-container">
+  
+          <div class = cardTitle>
+        Add company
+          </div>
+  
+    <form class="field" [formGroup]="companyAddForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input matInput placeholder="Name" value="" formControlName="name" required>
+          </mat-form-field>
+          
+          <button class="company-field" type="button" mat-raised-button color="error" routerLink="/companies" routerLinkActive="active">Cancel</button>
+  
+          <button class="company-field" type="submit" [disabled]="!companyAddForm.valid" mat-raised-button color="primary">Add</button>
+    </form>
+  </mat-card>
+  </div>
 </div>
