@@ -1,40 +1,30 @@
-import { Credentials } from './../../models/credentials.model';
-import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Tokens } from 'src/app/auth/models/tokens';
-import { config } from 'src/app/config';
-import { tap, mapTo, catchError } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { of, Observable } from 'rxjs';
+import { catchError, mapTo, tap } from 'rxjs/operators';
+import { config } from './../../config';
+import { Tokens } from '../models/tokens';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoggingService {
+export class AuthService {
 
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private loggedUser: string;
 
-  private logUrl = 'http://10.0.1.14:9000/projetCdb/api/users/auth';
-  private registerUrl = 'http://10.0.1.14:9000/projetCdb/api/users';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  register(credentials: Credentials): Observable<Credentials> {
-    return this.http.post<any>(this.registerUrl, credentials)
-  }
-
-  log(credentials: Credentials): Observable<boolean> {
-    console.log(credentials.password)
-    return this.http.post<any>(this.logUrl, credentials)
+  login(user: { username: string, password: string }): Observable<boolean> {
+    return this.http.post<any>(`${config.apiUrl}/login`, user)
       .pipe(
-        tap(tokens => this.doLoginUser(credentials.username, tokens)),
+        tap(tokens => this.doLoginUser(user.username, tokens)),
         mapTo(true),
         catchError(error => {
           alert(error.error);
           return of(false);
         }));
-
   }
 
   logout() {
@@ -93,4 +83,3 @@ export class LoggingService {
     localStorage.removeItem(this.REFRESH_TOKEN);
   }
 }
-  
