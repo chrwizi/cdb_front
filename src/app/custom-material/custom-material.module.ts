@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider'; 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input'; 
-import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatIconModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule} from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatIconModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatMenuTrigger, MatMenuModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatIconModul
     MatNativeDateModule,
     MatSelectModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
   ],
   exports:[
     MatCardModule,
@@ -49,7 +50,8 @@ import { MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatIconModul
     MatNativeDateModule,
     MatSelectModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
 
   ]
 })
