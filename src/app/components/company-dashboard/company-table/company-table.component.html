@@ -8,7 +8,7 @@
           Register a new account
         </div>
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <th i18n="@@name" mat-header-cell *matHeaderCellDef> Name </th>
           <td class="companyName" mat-cell *matCellDef="let company" (click)='onCompanyEdit(company.id)'> {{company.name}} </td>
         </ng-container>
         

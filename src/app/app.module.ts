@@ -13,6 +13,7 @@ import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapp
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { FormsModule } from '@angular/forms';
+import { GlobalWrapperModule } from './components/global-wrapper/global-wrapper.module';
 
 
 
@@ -20,18 +21,15 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     UserLoginComponent,
-    GlobalWrapperComponent,
     UserRegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NavigationModule,
-    ComputerDashboardModule,
-    CompanyDashboardModule,
     FormsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    GlobalWrapperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
