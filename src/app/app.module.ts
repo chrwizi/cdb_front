@@ -17,6 +17,9 @@ import { GlobalWrapperModule } from './components/global-wrapper/global-wrapper.
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
+
+
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { HttpClient } from '@angular/common/http';
             useFactory: HttpLoaderFactory,
             deps: [HttpClient]
         }
-    })
+    }),
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
