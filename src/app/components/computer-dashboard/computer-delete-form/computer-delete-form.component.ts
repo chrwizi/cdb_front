@@ -1,3 +1,5 @@
+import { ErrorService } from 'src/app/error/error.service';
+import { MatSnackBar } from '@angular/material';
 import { Component, Input } from '@angular/core';
 import { ComputerService } from 'src/app/services/computer/computer.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -12,17 +14,28 @@ export class ComputerDeleteFormComponent {
   @Input()
   id: String;
   computerDeleteForm: FormGroup = this.fb.group({});
-  constructor(private computerService: ComputerService, private fb: FormBuilder, private router: Router) { }
+
+  constructor(
+    private computerService: ComputerService, 
+    private fb: FormBuilder, 
+    private router: Router,
+    private errorService: ErrorService
+  ) { }
 
   onSubmit() {
     if(confirm("You are about to delete a computer:")) {
       this.computerService.delete(this.id).subscribe(
         data => {
-          console.debug('success');
-          this.router.navigateByUrl('/refresh', {skipLocationChange: true}).then(()=>
-          this.router.navigate(["computers"], { queryParams: { refresh: 1 }})); 
+          console.debug('Computer deletion successful');
+          this.router.navigateByUrl('/refresh', {skipLocationChange: true})
+            .then(
+              () => this.router.navigate(["computers"], { queryParams: { refresh: 1 }})
+            )
+            .then(
+              () => this.errorService.success('The company was successfully deleted')
+            ); 
         },
-        error => console.error('There was an error deleting a computer')
+        error => this.errorService.error('There was an error deleting the computer')
       );
     }
   }
