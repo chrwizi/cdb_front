@@ -1,4 +1,5 @@
 <span class="searchbar">
+
   <mat-form-field appearance="outline">
     <mat-label>Search</mat-label>
     <input matInput placeholder="Name, company...">
@@ -6,11 +7,9 @@
   </mat-form-field>
   
 </span>
+
 <span class="button">
-  <button mat-raised-button color="primary">Add Company  <mat-icon>work</mat-icon></button>
-</span>
-<span class="button">
-  <button mat-raised-button color="accent">Edit Company  <mat-icon>edit</mat-icon></button>
+  <button mat-raised-button color="primary" routerLink="/companies/add" routerLinkActive="active">Add Company  <mat-icon>work</mat-icon></button>
 </span>
 
 <span class="button">

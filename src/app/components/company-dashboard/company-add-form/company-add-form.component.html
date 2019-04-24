@@ -12,6 +12,8 @@
           <input matInput placeholder="Name" value="" formControlName="name" required>
         </mat-form-field>
         
+        <button class="company-field" type="button" mat-raised-button color="error" routerLink="/companies" routerLinkActive="active">Cancel</button>
+
         <button class="company-field" type="submit" [disabled]="!companyAddForm.valid" mat-raised-button color="primary">Add</button>
   </form>
 </mat-card>
