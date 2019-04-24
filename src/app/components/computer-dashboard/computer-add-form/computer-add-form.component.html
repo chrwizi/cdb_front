@@ -1,0 +1,41 @@
+<div class="add-form">
+
+    <mat-card class="computer-container">
+
+        <div class = cardTitle>
+      Add a new computer
+        </div>
+      
+    <form class="field" [formGroup]="computerAddForm" (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <input matInput placeholder="Name" formControlName="computerName" required>
+          </mat-form-field>
+          
+          <mat-form-field>
+            <input matInput [matDatepicker]="introductionPicker" placeholder="Introduction" formControlName="introduced">
+            <mat-datepicker-toggle matSuffix [for]="introductionPicker"></mat-datepicker-toggle>
+            <mat-datepicker #introductionPicker></mat-datepicker>
+          </mat-form-field>
+        
+          <mat-form-field>
+            <input matInput [matDatepicker]="discontinuationPicker" placeholder="Discontinuation" formControlName="discontinued">
+            <mat-datepicker-toggle matSuffix [for]="discontinuationPicker"></mat-datepicker-toggle>
+            <mat-datepicker #discontinuationPicker></mat-datepicker>
+          </mat-form-field>
+
+
+          <mat-form-field>
+              <mat-label>Select a company</mat-label>
+              <mat-select placeholder="Company" name="company" formControlName="companyId">
+                  <mat-option *ngFor="let company of this.companies" [value]="company.id">
+                    {{company.name}}
+                  </mat-option>
+                </mat-select> 
+          </mat-form-field>
+        
+          
+        
+          <button class="computer-field" type="submit" [disabled]="!computerAddForm.valid" mat-raised-button color="primary">Add</button>
+    </form>
+  </mat-card>
+</div>
