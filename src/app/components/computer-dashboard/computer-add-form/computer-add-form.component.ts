@@ -1,3 +1,5 @@
+import { ErrorService } from './../../../error/error.service';
+import { MatSnackBar } from '@angular/material';
 import { CompanyService } from './../../../services/company/company.service';
 import { ComputerService } from './../../../services/computer/computer.service';
 import { Component, OnInit } from '@angular/core';
@@ -23,7 +25,8 @@ export class ComputerAddFormComponent implements OnInit {
   constructor(
     private companyService: CompanyService, 
     private computerService: ComputerService, 
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private errorService: ErrorService
   ) {}
 
   ngOnInit() : void {
@@ -32,7 +35,7 @@ export class ComputerAddFormComponent implements OnInit {
         console.debug('companies', companies)
         this.companies = companies 
       },
-      error => console.error('There was an error retrieving the companies')
+      error => this.errorService.error('There was an error retrieving the companies')
     );
   }
 
@@ -40,8 +43,8 @@ export class ComputerAddFormComponent implements OnInit {
     console.debug(this.computerAddForm.value);
 
     this.computerService.add(this.computerAddForm.value).subscribe(
-      success => console.debug('success'),
-      error => console.error('There was an error adding a new computer')
+      success => this.errorService.success('The computer was successfully added'),
+      error => this.errorService.error('There was an error adding a new computer')
     );
   }
 

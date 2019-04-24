@@ -1,3 +1,4 @@
+import { ErrorService } from './../../../error/error.service';
 import { ActivatedRoute } from '@angular/router';
 import { Company } from 'src/app/models/company.model';
 import { Computer } from 'src/app/models/computer.model';
@@ -28,7 +29,8 @@ export class ComputerUpdateFormComponent implements OnInit {
     private computerService: ComputerService, 
     private companyService: CompanyService, 
     private fb: FormBuilder, 
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private errorService: ErrorService
   ) { }
 
   ngOnInit() : void {
@@ -38,7 +40,7 @@ export class ComputerUpdateFormComponent implements OnInit {
         console.debug("companies", companies)
         this.companies = companies
       },
-      error => console.error('There was an error retrieving the companies') 
+      error => this.errorService.error('There was an error retrieving the companies') 
     )
 
     let id = this.route.snapshot.paramMap.get("id");
@@ -48,7 +50,7 @@ export class ComputerUpdateFormComponent implements OnInit {
         console.debug('computer', computer);
         this.computerEditForm.setValue(computer)
       },
-      error => console.error("There was an error retrieving the computer with id " + id)
+      error => this.errorService.error("There was an error retrieving the computer with id " + id)
     );
 
   }
@@ -58,7 +60,7 @@ export class ComputerUpdateFormComponent implements OnInit {
 
     this.computerService.update(this.computerEditForm.value).subscribe(
       success => console.debug('Successfully updated'),
-      error => console.debug('There was an error updating the computer')
+      error => this.errorService.error('There was an error updating the computer')
     );
   }
 

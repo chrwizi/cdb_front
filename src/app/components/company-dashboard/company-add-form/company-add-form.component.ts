@@ -1,6 +1,8 @@
+import { ErrorService } from './../../../error/error.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CompanyService } from 'src/app/services/company/company.service';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-company-add-form',
@@ -15,7 +17,8 @@ export class CompanyAddFormComponent implements OnInit {
 
   constructor(
     private companyService: CompanyService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private errorService: ErrorService
   ) { }
 
   ngOnInit() : void {
@@ -24,8 +27,8 @@ export class CompanyAddFormComponent implements OnInit {
 
   onSubmit() : void {
     this.companyService.add(this.companyAddForm.value).subscribe(
-      success => console.debug('Company added'),
-      error => console.error('There was an error adding the company')
+      success => this.errorService.success('The company was successfully added'),
+      error => this.errorService.error('There was an error adding the company')
     );
   }
 

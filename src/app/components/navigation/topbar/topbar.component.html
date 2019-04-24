@@ -1,4 +1,23 @@
-
-
-  <p class="topbar"><mat-icon>desktop_mac</mat-icon> Computer Database
-</p>
+<div class="app-topbar">
+  <p class="topbar">
+    <span class="title"><mat-icon>desktop_mac</mat-icon> Computer Database</span>
+    <span class = "accountDropdown">
+      <img class = "accountPicture" src = "https://coubsecure-s.akamaihd.net/get/b176/p/channel/cw_avatar/c8cb3a3e5bb/5a86956f078a787173908/profile_pic_big_1500490861_EUGepIRyDKQ.jpg">
+        <span class="accountName">Admin</span>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item >
+              <mat-icon>settings</mat-icon>
+              <span>Settings</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>logout</mat-icon>
+              <span>Log out</span>
+            </button>
+          </mat-menu>
+          
+    </span>
+  </p>
+</div>

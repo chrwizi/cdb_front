@@ -1,18 +1,19 @@
-<span class="searchbar">
-  <mat-form-field appearance="outline">
-    <mat-label>Search</mat-label>
-    <input matInput placeholder="Name, company...">
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
+<div class="app-company-filters">
+  <span class="searchbar">
   
-</span>
-<span class="button">
-  <button mat-raised-button color="primary">Add Company  <mat-icon>work</mat-icon></button>
-</span>
-<span class="button">
-  <button mat-raised-button color="accent">Edit Company  <mat-icon>edit</mat-icon></button>
-</span>
-
-<span class="button">
-  <button mat-raised-button color="warn" (click)="toggleDelete()">Delete Company  <mat-icon>delete_forever</mat-icon></button>
-</span>
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Name, company...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    
+  </span>
+  
+  <span class="button">
+    <button mat-raised-button color="primary" routerLink="/companies/add" routerLinkActive="active">Add Company  <mat-icon>work</mat-icon></button>
+  </span>
+  
+  <span class="button">
+    <button mat-raised-button color="warn" (click)="toggleDelete()">Delete Company  <mat-icon>delete_forever</mat-icon></button>
+  </span>
+</div>

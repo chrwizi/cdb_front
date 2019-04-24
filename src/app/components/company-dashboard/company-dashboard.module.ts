@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CompanyCountComponent } from './company-count/company-count.component';
@@ -22,7 +23,8 @@ import { CustomMaterialModule } from 'src/app/custom-material/custom-material.mo
     CompanyDashboardWrapperComponent],
   imports: [
     CommonModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    RouterModule
   ],
   exports: [
     CompanyCountComponent, CompanyFiltersComponent, CompanyTableComponent, CompanyRowComponent, CompanyAddFormComponent, CompanyUpdateFormComponent, CompanyDeleteFormComponent, CompanyDashboardWrapperComponent
