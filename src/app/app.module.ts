@@ -13,6 +13,7 @@ import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapp
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { FormsModule } from '@angular/forms';
+import { MAT_DATE_LOCALE } from '@angular/material';
 
 
 
