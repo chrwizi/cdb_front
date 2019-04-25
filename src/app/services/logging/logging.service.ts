@@ -2,7 +2,7 @@ import { Credentials } from './../../models/credentials.model';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Tokens } from 'src/app/auth/models/tokens';
+import { Tokens } from 'src/app/models/tokens.model';
 import { config } from 'src/app/config';
 import { tap, mapTo, catchError } from 'rxjs/operators';
 
@@ -26,14 +26,16 @@ export class LoggingService {
 
   log(credentials: Credentials): Observable<boolean> {
     console.log(credentials.password)
-    return this.http.post<any>(this.logUrl, credentials)
+    return  this.http.post<any>(this.logUrl, credentials)
       .pipe(
         tap(tokens => this.doLoginUser(credentials.username, tokens)),
         mapTo(true),
         catchError(error => {
           alert(error.error);
           return of(false);
-        }));
+        }
+        
+        ));
 
   }
 

@@ -20,7 +20,6 @@ import { AuthModule } from './auth/auth.module';
 @NgModule({
   declarations: [
     AppComponent,
-    UserLoginComponent,
     GlobalWrapperComponent,
     UserRegisterComponent
   ],
@@ -33,7 +32,7 @@ import { AuthModule } from './auth/auth.module';
     CompanyDashboardModule,
     FormsModule,
     CustomMaterialModule,
-    AuthModule
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
