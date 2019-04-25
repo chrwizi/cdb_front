@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavigationModule } from './components/navigation/navigation.module';
 import { ComputerDashboardModule } from './components/computer-dashboard/computer-dashboard.module';
@@ -13,7 +13,10 @@ import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapp
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { FormsModule } from '@angular/forms';
-import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './auth/guards/auth.guard';
+import { ComputerGuard } from './auth/guards/computer.guard';
+import { TokenInterceptor } from './auth/token.interceptor';
+import { LoggingService } from './services/logging/logging.service';
 
 
 
@@ -21,7 +24,8 @@ import { AuthModule } from './auth/auth.module';
   declarations: [
     AppComponent,
     GlobalWrapperComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +36,16 @@ import { AuthModule } from './auth/auth.module';
     CompanyDashboardModule,
     FormsModule,
     CustomMaterialModule,
-    AuthModule,
   ],
-  providers: [],
+  providers: [AuthGuard,
+    ComputerGuard,
+    LoggingService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

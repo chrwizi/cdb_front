@@ -15,8 +15,8 @@ export class LoggingService {
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private loggedUser: string;
 
-  private logUrl = 'http://10.0.1.14:9000/projetCdb/api/users/auth';
-  private registerUrl = 'http://10.0.1.14:9000/projetCdb/api/users';
+  private logUrl = 'http://10.0.1.14:9000/projetCdb/api/Auth';
+  private registerUrl = 'http://10.0.1.14:9000/projetCdb/api/users'
 
   constructor(private http: HttpClient) { }
 
@@ -25,8 +25,7 @@ export class LoggingService {
   }
 
   log(credentials: Credentials): Observable<boolean> {
-    console.log(credentials.password)
-    return  this.http.post<any>(this.logUrl, credentials)
+    return  this.http.post<any>(`${this.logUrl}/login`, credentials)
       .pipe(
         tap(tokens => this.doLoginUser(credentials.username, tokens)),
         mapTo(true),
@@ -65,6 +64,10 @@ export class LoggingService {
 
   getJwtToken() {
     return localStorage.getItem(this.JWT_TOKEN);
+  }
+
+  getUser(){
+    return "azerazeraz";
   }
 
   private doLoginUser(username: string, tokens: Tokens) {

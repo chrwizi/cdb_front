@@ -19,3 +19,16 @@ margin-top : 25px;
 mat-form-field{
   width: 100%;
 }
+
+.optButtons{
+  text-align: left;
+  font-size: 12px;
+}
+.optLink{
+  margin-top:5px;
+}
+
+.optLink:hover{
+  text-decoration: underline; 
+  cursor: pointer;
+}

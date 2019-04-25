@@ -5,7 +5,7 @@ import { LoggingService } from 'src/app/services/logging/logging.service';
 @Injectable({
   providedIn: 'root'
 })
-export class RandomGuard implements CanActivate, CanLoad {
+export class ComputerGuard implements CanActivate, CanLoad {
 
   constructor(private authService: LoggingService, private router: Router) { }
 
@@ -16,6 +16,7 @@ export class RandomGuard implements CanActivate, CanLoad {
   canLoad() {
     if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/login']);
+      console.log("islogged " + this.authService.isLoggedIn());
     }
     return this.authService.isLoggedIn();
   }
