@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './containers/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { AuthGuard } from './guards/auth.guard';
-import { AuthService } from './services/auth.service';
 import { RandomGuard } from './guards/random.guard';
 import { TokenInterceptor } from './token.interceptor';
+import { LoggingService } from '../services/logging/logging.service';
+import { UserLoginComponent } from '../components/user/user-login/user-login.component';
+import { CustomMaterialModule } from '../custom-material/custom-material.module';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [UserLoginComponent],
   providers: [
     AuthGuard,
-    AuthService,
     RandomGuard,
+    LoggingService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
@@ -29,7 +30,8 @@ import { TokenInterceptor } from './token.interceptor';
     ReactiveFormsModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    CustomMaterialModule,
   ]
 })
 export class AuthModule { }

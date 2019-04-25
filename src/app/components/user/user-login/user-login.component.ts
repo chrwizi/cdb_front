@@ -25,16 +25,19 @@ export class UserLoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(): void {
+  get f() { return this.loggingForm.controls; }
 
-    this.loggingService.log(this.loggingForm.value).subscribe(
-      success => {
-        if (success) {
-          this.router.navigate(['/computers']);
-        }
-      },
-      error => console.debug('error')
+  login() {
+    this.loggingService.log(
+      this.loggingForm.value
+    )
+    .subscribe(success => {
+      if (success) {
+        this.router.navigate(['/computers']);
+      }
+    },error => console.debug('error')
     );
   }
+
 
 }

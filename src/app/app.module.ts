@@ -25,6 +25,7 @@ import { AuthModule } from './auth/auth.module';
   declarations: [
     AppComponent,
     UserLoginComponent,
+    GlobalWrapperComponent,
     UserRegisterComponent
   ],
   imports: [
