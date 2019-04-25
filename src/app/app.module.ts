@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavigationModule } from './components/navigation/navigation.module';
 import { ComputerDashboardModule } from './components/computer-dashboard/computer-dashboard.module';
@@ -17,7 +17,10 @@ import { GlobalWrapperModule } from './components/global-wrapper/global-wrapper.
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
-import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './auth/guards/auth.guard';
+import { ComputerGuard } from './auth/guards/computer.guard';
+import { TokenInterceptor } from './auth/token.interceptor';
+import { LoggingService } from './services/logging/logging.service';
 
 
 
@@ -26,7 +29,8 @@ import { AuthModule } from './auth/auth.module';
     AppComponent,
     UserLoginComponent,
     GlobalWrapperComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +46,15 @@ import { AuthModule } from './auth/auth.module';
             deps: [HttpClient]
         }
     }),
-    AuthModule
   ],
-  providers: [],
+  providers: [AuthGuard,
+    ComputerGuard,
+    LoggingService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

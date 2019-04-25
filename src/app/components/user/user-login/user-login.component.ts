@@ -27,6 +27,14 @@ export class UserLoginComponent implements OnInit {
 
   get f() { return this.loggingForm.controls; }
 
+  registerRoute(){
+    this.router.navigate(['/register']);
+  }
+
+  resetPwRoute(){
+    this.router.navigate(['/']);
+  }
+
   login() {
     this.loggingService.log(
       this.loggingForm.value
