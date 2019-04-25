@@ -1,7 +1,5 @@
 import { ErrorService } from 'src/app/error/error.service';
-import { MatSnackBar } from '@angular/material';
-import { ActivatedRoute } from '@angular/router';
-import { Company } from 'src/app/models/company.model';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CompanyService } from 'src/app/services/company/company.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -22,6 +20,7 @@ export class CompanyUpdateFormComponent implements OnInit {
     private companyService: CompanyService, 
     private fb: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router,
     private errorService: ErrorService
   ) { }
 
@@ -39,7 +38,10 @@ export class CompanyUpdateFormComponent implements OnInit {
 
   onSubmit() : void {
     this.companyService.update(this.companyEditForm.value).subscribe(
-      success => this.errorService.success('The company was successfully updated'),
+      success => {
+        this.router.navigate(["companies"], { queryParams: { refresh: 1 }});
+        this.errorService.success('The company has been updated successfully');
+      },
       error => this.errorService.error('There was an error updating the company')
     );
   }

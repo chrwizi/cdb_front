@@ -29,10 +29,10 @@ export class CompanyDeleteFormComponent {
           console.debug('Company deletion successful');
           this.router.navigateByUrl('/refresh', {skipLocationChange: true})
             .then(
-              () => this.router.navigate(["companies"], { queryParams: { refresh: 1 }})
-            )
-            .then(
-              () => this.errorService.success('There was an error deleting a company')
+              () =>{ 
+                this.router.navigate(["companies"], { queryParams: { refresh: 1 }});
+                this.errorService.success('The company was successfully deleted');
+              }
             );
 
         },
