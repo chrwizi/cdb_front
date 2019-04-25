@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { Computer } from 'src/app/models/computer.model';
 import { ErrorService } from './../../../error/error.service';
 import { MatSnackBar } from '@angular/material';
 import { CompanyService } from './../../../services/company/company.service';
@@ -5,6 +7,7 @@ import { ComputerService } from './../../../services/computer/computer.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Company } from 'src/app/models/company.model';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-computer-add-form',
@@ -15,17 +18,19 @@ export class ComputerAddFormComponent implements OnInit {
   
   companies: Array<Company>;
   computerAddForm: FormGroup = this.fb.group({
-    computerName: ['', Validators.required],
+    id: '',
+    name: ['', Validators.required],
     introduced: [''],
     discontinued: [''],
-    company: [''],
-    companyId: ['', Validators.required]
+    companyId: ['', Validators.required],
+    company: ['']
   });
 
   constructor(
     private companyService: CompanyService, 
     private computerService: ComputerService, 
     private fb: FormBuilder,
+    private router: Router,
     private errorService: ErrorService
   ) {}
 
@@ -42,10 +47,19 @@ export class ComputerAddFormComponent implements OnInit {
   onSubmit() : void {
     console.debug(this.computerAddForm.value);
 
-    this.computerService.add(this.computerAddForm.value).subscribe(
-      success => this.errorService.success('The computer was successfully added'),
+    this.computerService.add(this.formatDate(this.computerAddForm.value)).subscribe(
+      success => {
+        this.router.navigate(["computers"], { queryParams: { refresh: 1 }});
+        this.errorService.success('The computer has been created successfully');
+      },
       error => this.errorService.error('There was an error adding a new computer')
     );
+  }
+
+  formatDate(computer: Computer): Computer{
+    computer.introduced = computer.introduced ? moment(computer.introduced).format('YYYY-MM-DD') : null;
+    computer.discontinued = computer.discontinued ? moment(computer.discontinued).format('YYYY-MM-DD') : null;
+    return computer;
   }
 
 }

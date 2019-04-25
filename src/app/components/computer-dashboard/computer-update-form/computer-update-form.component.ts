@@ -1,11 +1,12 @@
 import { ErrorService } from './../../../error/error.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Company } from 'src/app/models/company.model';
 import { Computer } from 'src/app/models/computer.model';
 import { ComputerService } from './../../../services/computer/computer.service';
 import { CompanyService } from './../../../services/company/company.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-computer-update-form',
@@ -18,10 +19,10 @@ export class ComputerUpdateFormComponent implements OnInit {
   computer: Computer;
   computerEditForm: FormGroup = this.fb.group({
     id: [''],
-    name: [''],
+    name: ['', Validators.required],
     introduced: [''],
     discontinued: [''],
-    companyId: [''],
+    companyId: ['', Validators.required],
     company: ['']
   });
   
@@ -30,10 +31,11 @@ export class ComputerUpdateFormComponent implements OnInit {
     private companyService: CompanyService, 
     private fb: FormBuilder, 
     private route: ActivatedRoute,
+    private router: Router,
     private errorService: ErrorService
   ) { }
 
-  ngOnInit() : void {
+  ngOnInit(): void {
 
     this.companyService.getCompanies().subscribe(
       companies => {
@@ -55,13 +57,22 @@ export class ComputerUpdateFormComponent implements OnInit {
 
   }
 
-  onSubmit() : void {
+  onSubmit(): void {
     console.debug('computer', this.computerEditForm.value);
 
-    this.computerService.update(this.computerEditForm.value).subscribe(
-      success => console.debug('Successfully updated'),
+    this.computerService.update(this.formatDate(this.computerEditForm.value)).subscribe(
+      success => {
+        this.router.navigate(["computers"], { queryParams: { refresh: 1 }});
+        this.errorService.success('The computer has been updated successfully');
+      },
       error => this.errorService.error('There was an error updating the computer')
     );
   }
 
+  formatDate(computer: Computer): Computer{
+    computer.introduced = computer.introduced ? moment(computer.introduced).format('YYYY-MM-DD') : null;
+    computer.discontinued = computer.discontinued ? moment(computer.discontinued).format('YYYY-MM-DD') : null;
+    console.debug('sent', computer);
+    return computer;
+  }
 }
