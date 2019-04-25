@@ -43,6 +43,5 @@ export class ComputerFiltersComponent implements OnInit {
     }
     this.deleteMode = !this.deleteMode;
     this.onDeleteChanged.emit(this.deleteMode);
-    console.log(this.deleteMode);
   }
 }

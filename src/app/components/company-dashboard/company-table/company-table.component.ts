@@ -22,10 +22,6 @@ export class CompanyTableComponent implements OnInit{
   constructor(private companyService: CompanyService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    if(this.route.snapshot.queryParamMap.get("refresh") === "1"){
-      this.deleteMode = true;
-    }
-
     this.companyService.getCompanies().subscribe(
        companies => this.companies = companies
     );

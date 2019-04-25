@@ -31,7 +31,7 @@
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let computer">
         <div *ngIf="deleteMode">
-          <app-computer-delete-form [id]="computer.id"></app-computer-delete-form>
+          <app-computer-delete-form [paginator]="paginator" [id]="computer.id"></app-computer-delete-form>
         </div>
       </td>
     </ng-container>

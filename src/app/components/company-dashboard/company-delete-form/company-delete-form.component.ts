@@ -1,4 +1,4 @@
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatPaginator } from '@angular/material';
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CompanyService } from 'src/app/services/company/company.service';

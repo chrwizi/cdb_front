@@ -1,5 +1,5 @@
 import { ErrorService } from 'src/app/error/error.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatPaginator } from '@angular/material';
 import { Component, Input } from '@angular/core';
 import { ComputerService } from 'src/app/services/computer/computer.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -13,6 +13,10 @@ import { Router } from '@angular/router';
 export class ComputerDeleteFormComponent {
   @Input()
   id: String;
+
+  @Input()
+  paginator: MatPaginator;
+
   computerDeleteForm: FormGroup = this.fb.group({});
 
   constructor(
@@ -30,7 +34,7 @@ export class ComputerDeleteFormComponent {
           this.router.navigateByUrl('/refresh', {skipLocationChange: true})
             .then(
               () => {
-                this.router.navigate(["computers"], { queryParams: { refresh: 1 }});
+                this.router.navigate(["computers"], { queryParams: { refresh: 1, rows: this.paginator.pageSize, page: this.paginator.pageIndex }});
                 this.errorService.success('The computer was successfully deleted');
               }
             ); 

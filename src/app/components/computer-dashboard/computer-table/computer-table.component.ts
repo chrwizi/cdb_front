@@ -31,6 +31,8 @@ export class ComputerTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.paginator.pageIndex = parseInt(this.route.snapshot.queryParamMap.get("page"));
+    this.paginator.pageSize = parseInt(this.route.snapshot.queryParamMap.get("rows"));
     this.computerService.getComputers().subscribe( computers => {
       this.computers = computers
       this.dataSource = new MatTableDataSource<Computer>(this.computers);
