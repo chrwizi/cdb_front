@@ -28,6 +28,6 @@ export class CompanyService {
   }
 
   update(company: Company): Observable<void> {
-    return this.http.patch<void>(`${ this.url }/${ company.id }`, company);
+    return this.http.put<void>(`${ this.url }/${ company.id }`, company);
   }
 }

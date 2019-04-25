@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Computer } from 'src/app/models/computer.model';
 import { ErrorService } from './../../../error/error.service';
 import { MatSnackBar } from '@angular/material';
@@ -29,6 +30,7 @@ export class ComputerAddFormComponent implements OnInit {
     private companyService: CompanyService, 
     private computerService: ComputerService, 
     private fb: FormBuilder,
+    private router: Router,
     private errorService: ErrorService
   ) {}
 
@@ -46,7 +48,10 @@ export class ComputerAddFormComponent implements OnInit {
     console.debug(this.computerAddForm.value);
 
     this.computerService.add(this.formatDate(this.computerAddForm.value)).subscribe(
-      success => this.errorService.success('The computer was successfully added'),
+      success => {
+        this.router.navigate(["computers"], { queryParams: { refresh: 1 }});
+        this.errorService.success('The computer has been created successfully');
+      },
       error => this.errorService.error('There was an error adding a new computer')
     );
   }

@@ -27,6 +27,6 @@ export class ComputerService {
   }
 
   update(computer: Computer): Observable<void> {
-    return this.http.patch<void>(`${ this.url }/${ computer.id }`, computer);
+    return this.http.put<void>(`${ this.url }/${ computer.id }`, computer);
   }
 }

@@ -29,10 +29,10 @@ export class ComputerDeleteFormComponent {
           console.debug('Computer deletion successful');
           this.router.navigateByUrl('/refresh', {skipLocationChange: true})
             .then(
-              () => this.router.navigate(["computers"], { queryParams: { refresh: 1 }})
-            )
-            .then(
-              () => this.errorService.success('The company was successfully deleted')
+              () => {
+                this.router.navigate(["computers"], { queryParams: { refresh: 1 }});
+                this.errorService.success('The computer was successfully deleted');
+              }
             ); 
         },
         error => this.errorService.error('There was an error deleting the computer')
