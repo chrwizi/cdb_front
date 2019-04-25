@@ -1,5 +1,5 @@
 import { ErrorService } from './../../../error/error.service';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Company } from 'src/app/models/company.model';
 import { Computer } from 'src/app/models/computer.model';
 import { ComputerService } from './../../../services/computer/computer.service';

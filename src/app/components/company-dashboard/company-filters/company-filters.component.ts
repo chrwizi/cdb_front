@@ -13,7 +13,9 @@ export class CompanyFiltersComponent implements OnInit {
   deleteMode: boolean = false;
   deleted: boolean= false;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {}
 

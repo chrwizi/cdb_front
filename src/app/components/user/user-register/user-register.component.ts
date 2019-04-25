@@ -16,7 +16,7 @@ export class UserRegisterComponent implements OnInit {
     username: ['', Validators.required],
     password: ['', [Validators.required, Validators.minLength(this.minPw)]],
     password2: ['', [Validators.required]]
-  }, {validator: passwordMatchValidator});
+  }, { validator: passwordMatchValidator });
 
   constructor(
     private fb: FormBuilder,
@@ -50,7 +50,7 @@ export class UserRegisterComponent implements OnInit {
 
 export const passwordMatchValidator: ValidatorFn = (formGroup: FormGroup): ValidationErrors | null => {
   if (formGroup.get('password').value !== formGroup.get('password2').value){
-    return {passwordMismatch: true};
+    return { passwordMismatch: true };
   }
   return null;
 };

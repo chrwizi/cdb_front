@@ -1,4 +1,3 @@
-import { MatSnackBar } from '@angular/material';
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CompanyService } from 'src/app/services/company/company.service';
@@ -29,7 +28,7 @@ export class CompanyDeleteFormComponent {
           console.debug('Company deletion successful');
           this.router.navigateByUrl('/refresh', {skipLocationChange: true})
             .then(
-              () =>{ 
+              () => { 
                 this.router.navigate(["companies"], { queryParams: { refresh: 1 }});
                 this.errorService.success('The company was successfully deleted');
               }

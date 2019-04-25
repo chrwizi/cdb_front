@@ -3,7 +3,6 @@ import { ErrorService } from './../../../error/error.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CompanyService } from 'src/app/services/company/company.service';
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-company-add-form',

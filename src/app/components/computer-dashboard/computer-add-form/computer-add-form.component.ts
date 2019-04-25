@@ -1,7 +1,6 @@
 import { Router } from '@angular/router';
 import { Computer } from 'src/app/models/computer.model';
 import { ErrorService } from './../../../error/error.service';
-import { MatSnackBar } from '@angular/material';
 import { CompanyService } from './../../../services/company/company.service';
 import { ComputerService } from './../../../services/computer/computer.service';
 import { Component, OnInit } from '@angular/core';

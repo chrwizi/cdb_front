@@ -26,7 +26,11 @@ export class ComputerTableComponent implements OnInit {
   
   displayedColumns: string[] = ['name', 'introduced', 'discontinued', 'company', 'id'];
 
-  constructor(private computerService: ComputerService, private router:Router, private route: ActivatedRoute){
+  constructor(
+    private computerService: ComputerService, 
+    private router:Router, 
+    private route: ActivatedRoute
+  ){
     this.dataSource.paginator = this.paginator;
   }
 
