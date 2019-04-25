@@ -19,10 +19,10 @@ export class ComputerUpdateFormComponent implements OnInit {
   computer: Computer;
   computerEditForm: FormGroup = this.fb.group({
     id: [''],
-    name: [''],
+    name: ['', Validators.required],
     introduced: [''],
     discontinued: [''],
-    companyId: [''],
+    companyId: ['', Validators.required],
     company: ['']
   });
   
@@ -66,8 +66,8 @@ export class ComputerUpdateFormComponent implements OnInit {
   }
 
   formatDate(computer: Computer): Computer{
-    computer.introduced = computer.introduced ? moment(computer.introduced).format('YYYY-MM-DD') : "";
-    computer.discontinued = computer.discontinued ? moment(computer.discontinued).format('YYYY-MM-DD') : "";
+    computer.introduced = computer.introduced ? moment(computer.introduced).format('YYYY-MM-DD') : null;
+    computer.discontinued = computer.discontinued ? moment(computer.discontinued).format('YYYY-MM-DD') : null;
     return computer;
   }
 }
