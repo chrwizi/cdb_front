@@ -39,7 +39,7 @@ export class CompanyUpdateFormComponent implements OnInit {
   onSubmit() : void {
     this.companyService.update(this.companyEditForm.value).subscribe(
       success => {
-        this.router.navigate(["companies"], { queryParams: { refresh: 1 }});
+        this.router.navigate(["companies"]);
         this.errorService.success('The company has been updated successfully');
       },
       error => this.errorService.error('There was an error updating the company')

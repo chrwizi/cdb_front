@@ -48,7 +48,7 @@ export class ComputerAddFormComponent implements OnInit {
 
     this.computerService.add(this.formatDate(this.computerAddForm.value)).subscribe(
       success => {
-        this.router.navigate(["computers"], { queryParams: { refresh: 1 }});
+        this.router.navigate(["computers"]);
         this.errorService.success('The computer has been created successfully');
       },
       error => this.errorService.error('There was an error adding a new computer')

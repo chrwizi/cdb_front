@@ -30,7 +30,7 @@ export class CompanyAddFormComponent implements OnInit {
   onSubmit() : void {
     this.companyService.add(this.companyAddForm.value).subscribe(
       success => {
-        this.router.navigate(["companies"], { queryParams: { refresh: 1 }});
+        this.router.navigate(["companies"]);
         this.errorService.success('The company has been created successfully');
       },
       error => this.errorService.error('There was an error adding the company')

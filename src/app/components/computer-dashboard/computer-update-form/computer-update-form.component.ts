@@ -62,7 +62,7 @@ export class ComputerUpdateFormComponent implements OnInit {
 
     this.computerService.update(this.formatDate(this.computerEditForm.value)).subscribe(
       success => {
-        this.router.navigate(["computers"], { queryParams: { refresh: 1 }});
+        this.router.navigate(["computers"]);
         this.errorService.success('The computer has been updated successfully');
       },
       error => this.errorService.error('There was an error updating the computer')
