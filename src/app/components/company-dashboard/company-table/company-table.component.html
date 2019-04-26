@@ -13,7 +13,7 @@
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let company">
               <div *ngIf="deleteMode">
-                <app-company-delete-form [id]="company.id"></app-company-delete-form>
+                <app-company-delete-form [paginator]="paginator" [id]="company.id"></app-company-delete-form>
               </div>
             </td>
           </ng-container>

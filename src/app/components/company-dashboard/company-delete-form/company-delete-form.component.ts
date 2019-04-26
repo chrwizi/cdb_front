@@ -13,6 +13,10 @@ import { ErrorService } from 'src/app/error/error.service';
 export class CompanyDeleteFormComponent {
   @Input()
   id: String;
+
+  @Input()
+  paginator: MatPaginator;
+
   companyDeleteForm: FormGroup = this.fb.group({});
   
   constructor(
@@ -30,7 +34,7 @@ export class CompanyDeleteFormComponent {
           this.router.navigateByUrl('/refresh', {skipLocationChange: true})
             .then(
               () =>{ 
-                this.router.navigate(["companies"], { queryParams: { refresh: 1 }});
+                this.router.navigate(["companies"], { queryParams: { refresh: 1, rows: this.paginator.pageSize, page: this.paginator.pageIndex }});
                 this.errorService.success('The company was successfully deleted');
               }
             );

@@ -12,7 +12,7 @@ export class CompanyService {
   constructor(private http: HttpClient) {}
 
   getCompanies(): Observable<Company[]> {
-    return this.http.get<Company[]>(`${ this.url }?rowsPage=10&pageNumber=1`);
+    return this.http.get<Company[]>(`${ this.url }`);
   }
 
   getCompany(id: String): Observable<Company> {

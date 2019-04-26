@@ -20,13 +20,15 @@ export class CompanyTableComponent implements OnInit{
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   
-  displayedColumns: string[] = ['name'];
+  displayedColumns: string[] = ['name', 'id'];
 
   constructor(private companyService: CompanyService, private router: Router, private route: ActivatedRoute) {
     this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(): void {
+    this.paginator.pageIndex = parseInt(this.route.snapshot.queryParamMap.get("page"));
+    this.paginator.pageSize = parseInt(this.route.snapshot.queryParamMap.get("rows"));
     this.companyService.getCompanies().subscribe(
        companies => {
         this.companies = companies;
