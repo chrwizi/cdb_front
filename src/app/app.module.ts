@@ -14,9 +14,9 @@ import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { FormsModule } from '@angular/forms';
 import { GlobalWrapperModule } from './components/global-wrapper/global-wrapper.module';
-import { MAT_DATE_LOCALE } from '@angular/material';
-
-
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,9 +30,20 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     AppRoutingModule,
     FormsModule,
     CustomMaterialModule,
-    GlobalWrapperModule
+    GlobalWrapperModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

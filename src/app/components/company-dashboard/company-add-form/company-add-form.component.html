@@ -4,17 +4,17 @@
       <mat-card class="company-container">
   
           <div class = cardTitle>
-        Add company
+            {{'add.Add' | translate}} {{'company.Company' | translate}}
           </div>
   
     <form class="field" [formGroup]="companyAddForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
-            <input matInput placeholder="Name" value="" formControlName="name" required>
+            <input matInput placeholder="{{'add.Name' | translate}}" value="" formControlName="Name" required>
           </mat-form-field>
           
-          <button class="company-field" type="button" mat-raised-button color="error" routerLink="/companies" routerLinkActive="active">Cancel</button>
+          <button class="company-field" type="button" mat-raised-button color="error" routerLink="/companies" routerLinkActive="active">{{'add.Cancel' | translate}}</button>
   
-          <button class="company-field" type="submit" [disabled]="!companyAddForm.valid" mat-raised-button color="primary">Add</button>
+          <button class="company-field" type="submit" [disabled]="!companyAddForm.valid" mat-raised-button color="primary">{{'add.Add' | translate}}</button>
     </form>
   </mat-card>
   </div>

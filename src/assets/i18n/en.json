@@ -1,0 +1,39 @@
+{
+    "company": {
+        "Company": "Company",
+        "Name": "Name",
+        "Add Company": "Add Company",
+        "Delete Company": "Delete Company"
+    },
+    "computer": {
+        "Computer": "Computer",
+        "Name": "Name",
+        "Date Introduced": "Date Introduced",
+        "Date Discontinued": "Date Discontinued",
+        "Company": "Company",
+        "Add Computer": "Add Computer",
+        "Delete Computer": "Delete Computer"
+    },
+    "filter": {
+        "Filter": "Filter",
+        "Search": "Search"
+    },
+    "add": {
+        "Name": "Name",
+        "Introduced": "Introduced",
+        "Discontinued": "Discontinued",
+        "Company": "Company",
+        "Select": "Select a company",
+        "Add": "Add",
+        "Cancel": "Cancel"
+    },
+    "update": {
+        "Name": "Name",
+        "Introduced": "Introduced",
+        "Discontinued": "Discontinued",
+        "Company": "Company",
+        "Select": "Select a company",
+        "Update": "Update",
+        "Cancel": "Cancel"
+    }
+}

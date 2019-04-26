@@ -3,39 +3,39 @@
     <mat-card class="computer-container">
 
         <div class = cardTitle>
-      Add a new computer
+          {{'add.Add' | translate}} {{'computer.Computer' | translate}}
         </div>
       
     <form class="field" [formGroup]="computerAddForm" (ngSubmit)="onSubmit()">
           <mat-form-field>
-            <input matInput placeholder="Name" formControlName="name" required>
+            <input matInput placeholder="{{'add.Name' | translate}}" formControlName="name" required>
           </mat-form-field>
           
           <mat-form-field>
-            <input matInput [matDatepicker]="introductionPicker" placeholder="Introduction" formControlName="introduced">
+            <input matInput [matDatepicker]="introductionPicker" placeholder="{{'add.Introduced' | translate}}" formControlName="introduced">
             <mat-datepicker-toggle matSuffix [for]="introductionPicker"></mat-datepicker-toggle>
             <mat-datepicker #introductionPicker></mat-datepicker>
           </mat-form-field>
         
           <mat-form-field>
-            <input matInput [matDatepicker]="discontinuationPicker" placeholder="Discontinuation" formControlName="discontinued">
+            <input matInput [matDatepicker]="discontinuationPicker" placeholder="{{'add.Discontinued' | translate}}" formControlName="discontinued">
             <mat-datepicker-toggle matSuffix [for]="discontinuationPicker"></mat-datepicker-toggle>
             <mat-datepicker #discontinuationPicker></mat-datepicker>
           </mat-form-field>
 
 
           <mat-form-field>
-              <mat-label>Select a company</mat-label>
-              <mat-select placeholder="Company" name="company" formControlName="companyId">
+              <mat-label>{{'add.Select' | translate}}</mat-label>
+              <mat-select placeholder="{{'add.Company' | translate}}" name="company" formControlName="companyId">
                   <mat-option *ngFor="let company of this.companies" [value]="company.id">
                     {{company.name}}
                   </mat-option>
                 </mat-select> 
           </mat-form-field>
         
-          <button class="computer-field" type="button" mat-raised-button color="error" routerLink="/computers" routerLinkActive="active">Cancel</button>
+          <button class="computer-field" type="button" mat-raised-button color="error" routerLink="/computers" routerLinkActive="active">{{'add.Cancel' | translate}}</button>
         
-          <button class="computer-field" type="submit" [disabled]="!computerAddForm.valid" mat-raised-button color="primary">Add</button>
+          <button class="computer-field" type="submit" [disabled]="!computerAddForm.valid" mat-raised-button color="primary">{{'add.Add' | translate}}</button>
     </form>
   </mat-card>
 </div>
