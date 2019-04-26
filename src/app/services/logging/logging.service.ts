@@ -15,13 +15,16 @@ export class LoggingService {
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private loggedUser: string;
 
-  private logUrl = 'http://10.0.1.14:9000/projetCdb/api/Auth';
-  private registerUrl = 'http://10.0.1.14:9000/projetCdb/api/users'
+  private logUrl = 'http://10.0.1.203:9000/projetCdb/api/auth';
+  private registerUrl = 'http://10.0.1.203:9000/projetCdb/api/users';
+  //private registerUrl = 'http://10.0.1.14:9000/projetCdb/api/companies/cred'
 
   constructor(private http: HttpClient) { }
 
   register(credentials: Credentials): Observable<Credentials> {
     return this.http.post<any>(this.registerUrl, credentials)
+    //return this.http.get<any>(this.registerUrl)
+    
   }
 
   log(credentials: Credentials): Observable<boolean> {
@@ -67,7 +70,7 @@ export class LoggingService {
   }
 
   getUser(){
-    return "azerazeraz";
+    return this.loggedUser;
   }
 
   private doLoginUser(username: string, tokens: Tokens) {
@@ -93,7 +96,7 @@ export class LoggingService {
     localStorage.setItem(this.REFRESH_TOKEN, tokens.refreshToken);
   }
 
-  private removeTokens() {
+  removeTokens() {
     localStorage.removeItem(this.JWT_TOKEN);
     localStorage.removeItem(this.REFRESH_TOKEN);
   }

@@ -1,6 +1,7 @@
 import { LoggingService } from './../../../services/logging/logging.service';
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder, ValidatorFn, ValidationErrors} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-register',
@@ -20,7 +21,8 @@ export class UserRegisterComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private loggingService: LoggingService
+    private loggingService: LoggingService,
+    private router :Router
   ) { }
 
   ngOnInit(): void {
@@ -29,8 +31,11 @@ export class UserRegisterComponent implements OnInit {
   onSubmit() : void {
     console.debug('Register', this.registerForm.value);
     this.loggingService.register(this.registerForm.value).subscribe(
-      success => console.debug('success'),
-      error => console.error('There was an error logging in.')
+      success => {
+        console.debug('success');
+        this.router.navigate(['/login']);
+      },
+      error => alert('There was an error during registration.')
     )
   }
 

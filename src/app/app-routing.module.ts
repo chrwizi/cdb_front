@@ -80,7 +80,7 @@ const routes: Routes = [
   {
     path: 'register',
     component: UserRegisterComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
 
   {
