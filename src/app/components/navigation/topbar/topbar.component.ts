@@ -14,22 +14,37 @@ export class TopbarComponent implements OnInit {
     this.translate.setDefaultLang('fr');
   }
   username: string;
+  isLogged: boolean;
 
   useLanguage(language: string) {
     this.translate.use(language);
   }
 
   ngOnInit() {
+    this.isLogged = this.loggingService.isLoggedIn();
     this.username = this.loggingService.getUser()
+    console.log("username :"+this.username);
   }
 
+
+
+  // logout() {
+  //   this.loggingService.logout()
+  //     .subscribe(success => {
+  //       if (success) {
+  //         this.router.navigate(['/login']);
+  //       }
+  //     });
+  // }
+
   logout() {
-    this.loggingService.logout()
-      .subscribe(success => {
-        if (success) {
-          this.router.navigate(['/login']);
-        }
-      });
+    this.loggingService.removeTokens();
+    this.router.navigate(['/login']);
   }
+
+  mainRoute(){
+    this.router.navigate(['/computers']);
+  }
+
 
 }
