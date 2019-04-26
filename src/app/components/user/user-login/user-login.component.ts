@@ -1,7 +1,7 @@
 import { LoggingService } from './../../../services/logging/logging.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -19,7 +19,7 @@ export class UserLoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loggingService: LoggingService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +41,7 @@ export class UserLoginComponent implements OnInit {
     )
     .subscribe(success => {
       if (success) {
+        window.location.reload();
         this.router.navigate(['/computers']);
       }
     },error => console.debug('error')

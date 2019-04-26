@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './topbar.component.html',
   styleUrls: ['./topbar.component.scss']
 })
+
 export class TopbarComponent implements OnInit {
 
   constructor(private translate: TranslateService,private loggingService:LoggingService, private router : Router) {
