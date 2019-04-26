@@ -51,7 +51,7 @@ export class ComputerTableComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['filter'] && changes['filter'].previousValue != changes['filter'].currentValue && !changes['filter'].firstChange){
       console.debug('Filter method triggered with ', this.filter);
-      this.computerService.getComputers().subscribe( 
+      this.computerService.search(this.filter).subscribe( 
         computers => {
         this.computers = computers;
         this.dataSource = new MatTableDataSource<Computer>(this.computers);

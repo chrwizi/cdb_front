@@ -29,4 +29,8 @@ export class ComputerService {
   update(computer: Computer): Observable<void> {
     return this.http.put<void>(`${ this.url }/${ computer.id }`, computer);
   }
+
+  search(filter: String): Observable<Computer[]> {
+    return this.http.get<Computer[]>(this.url + '/search/?research=' + filter);
+  }
 }
