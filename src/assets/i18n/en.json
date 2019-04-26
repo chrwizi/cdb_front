@@ -1,12 +1,14 @@
 {
     "company": {
         "Company": "Company",
+        "Companies": "Companies",
         "Name": "Name",
         "Add Company": "Add Company",
         "Delete Company": "Delete Company"
     },
     "computer": {
         "Computer": "Computer",
+        "Computers": "Computers",
         "Name": "Name",
         "Date Introduced": "Date Introduced",
         "Date Discontinued": "Date Discontinued",
