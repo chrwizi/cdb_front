@@ -1,0 +1,41 @@
+{
+    "company": {
+        "Company": "Compagnie",
+        "Companies": "Compagnies",
+        "Name": "Nom",
+        "Add Company": "Ajouter Compagnie",
+        "Delete Company": "Supprimer Compagnie"
+    },
+    "computer": {
+        "Computer": "Ordinateur",
+        "Computers": "Ordinateurs",
+        "Name": "Nom",
+        "Date Introduced": "Date Introduction",
+        "Date Discontinued": "Date Interruption",
+        "Company": "Compagnie",
+        "Add Computer": "Ajouter Ordinateur",
+        "Delete Computer": "Supprimer Ordinateur"
+    },
+    "filter": {
+        "Filter": "Filtrer",
+        "Search": "Rechercher"
+    },
+    "add": {
+        "Name": "Nom",
+        "Introduced": "Introduction",
+        "Discontinued": "Interruption",
+        "Company": "Compagnie",
+        "Select": "Sélectionner une compagnie",
+        "Add": "Ajouter",
+        "Cancel": "Annuler"
+    },
+    "update": {
+        "Name": "Nom",
+        "Introduced": "Introduction",
+        "Discontinued": "Interruption",
+        "Company": "Compagnie",
+        "Select": "Sélectionner une compagnie",
+        "Update": "Modifier",
+        "Cancel": "Annuler"
+    }
+}

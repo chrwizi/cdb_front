@@ -1,6 +1,7 @@
 import { LoggingService } from './../../../services/logging/logging.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -17,17 +18,35 @@ export class UserLoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private loggingService: LoggingService
+    private loggingService: LoggingService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
-    this.loggingService.log(this.loggingForm.value).subscribe(
-      success => console.debug('success'),
-      error => console.debug('error')
+  get f() { return this.loggingForm.controls; }
+
+  registerRoute(){
+    this.router.navigate(['/register']);
+  }
+
+  resetPwRoute(){
+    this.router.navigate(['/']);
+  }
+
+  login() {
+    this.loggingService.log(
+      this.loggingForm.value
+    )
+    .subscribe(success => {
+      if (success) {
+        window.location.reload();
+        this.router.navigate(['/computers']);
+      }
+    },error => console.debug('error')
     );
   }
+
 
 }

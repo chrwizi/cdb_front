@@ -1,19 +1,22 @@
 <div class="app-company-filters">
-  <span class="searchbar">
-  
-    <mat-form-field appearance="outline">
-      <mat-label>Search</mat-label>
-      <input matInput placeholder="Name, company...">
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-    
+  <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+    <span class="searchbar">
+      <mat-form-field appearance="outline">
+        <mat-label>{{'filter.Search' | translate}}</mat-label>
+        <input matInput placeholder="Name, company...">
+        <mat-icon matSuffix>{{'filter.Search' | translate}}</mat-icon>
+      </mat-form-field>
+    </span>
+    <span class="filter">
+      <button mat-raised-button type="submit" color="primary">{{'filter.Filter' | translate}}<mat-icon>filter_center_focus</mat-icon></button>
+    </span>
+  </form>
+
+  <span class="button">
+    <button mat-raised-button color="primary" routerLink="/companies/add" routerLinkActive="active">{{'company.Add Company' | translate}}  <mat-icon>work</mat-icon></button>
   </span>
   
   <span class="button">
-    <button mat-raised-button color="primary" routerLink="/companies/add" routerLinkActive="active">Add Company  <mat-icon>work</mat-icon></button>
-  </span>
-  
-  <span class="button">
-    <button mat-raised-button color="warn" (click)="toggleDelete()">Delete Company  <mat-icon>delete_forever</mat-icon></button>
+    <button mat-raised-button color="warn" (click)="toggleDelete()">{{'company.Delete Company' | translate}}  <mat-icon>delete_forever</mat-icon></button>
   </span>
 </div>

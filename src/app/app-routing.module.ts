@@ -13,58 +13,81 @@ import { ComputerDashboardWrapperComponent } from './components/computer-dashboa
 import { CompanyDashboardWrapperComponent } from './components/company-dashboard/company-dashboard-wrapper/company-dashboard-wrapper.component';
 import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapper/global-wrapper.component';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
+import { AuthGuard } from './auth/guards/auth.guard';
+import { ComputerGuard } from './auth/guards/computer.guard';
 
 const routes: Routes = [
 
   {
     path: 'computers',
-    component: ComputerDashboardWrapperComponent
+    component: ComputerDashboardWrapperComponent,
+    canActivate: [ComputerGuard],
+    canLoad: [ComputerGuard]
   },
   {
     path: 'companies',
-    component: CompanyDashboardWrapperComponent
+    component: CompanyDashboardWrapperComponent,
+    canActivate: [ComputerGuard],
+    canLoad: [ComputerGuard]
   },
   {
     path: 'computers/add',
-    component: ComputerAddFormComponent
+    component: ComputerAddFormComponent,
+    canActivate: [ComputerGuard],
+    canLoad: [ComputerGuard]
   },
   {
     path: 'computers/edit/:id',
-    component: ComputerUpdateFormComponent
+    component: ComputerUpdateFormComponent,
+    canActivate: [ComputerGuard],
+    canLoad: [ComputerGuard]
   },
   {
     path: 'computers/delete/:id',
-    component: ComputerDeleteFormComponent
+    component: ComputerDeleteFormComponent,
+    canActivate: [ComputerGuard],
+    canLoad: [ComputerGuard]
   },
   {
     path: 'companies',
-    component: CompanyDashboardWrapperComponent
+    component: CompanyDashboardWrapperComponent,
+    canActivate: [ComputerGuard],
+    canLoad: [ComputerGuard]
   },
   {
     path: 'companies/add',
-    component: CompanyAddFormComponent
+    component: CompanyAddFormComponent,
+    canActivate: [ComputerGuard],
+    canLoad: [ComputerGuard]
   },
   {
     path: 'companies/edit/:id',
-    component: CompanyUpdateFormComponent
+    component: CompanyUpdateFormComponent,
+    canActivate: [ComputerGuard],
+    canLoad: [ComputerGuard]
   },
   {
     path: 'companies/delete/:id',
-    component: CompanyDeleteFormComponent
+    component: CompanyDeleteFormComponent,
+    canActivate: [ComputerGuard],
+    canLoad: [ComputerGuard]
   },
   {
     path: 'login',
-    component: UserLoginComponent
+    component: UserLoginComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'register',
-    component: UserRegisterComponent
+    component: UserRegisterComponent,
+    // canActivate: [AuthGuard]
   },
 
   {
     path: '**',
     component: UserLoginComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   }
 
 ];

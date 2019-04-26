@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavigationModule } from './components/navigation/navigation.module';
 import { ComputerDashboardModule } from './components/computer-dashboard/computer-dashboard.module';
@@ -13,7 +13,14 @@ import { GlobalWrapperComponent } from './components/global-wrapper/global-wrapp
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { FormsModule } from '@angular/forms';
-import { MAT_DATE_LOCALE } from '@angular/material';
+import { GlobalWrapperModule } from './components/global-wrapper/global-wrapper.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { AuthGuard } from './auth/guards/auth.guard';
+import { ComputerGuard } from './auth/guards/computer.guard';
+import { TokenInterceptor } from './auth/token.interceptor';
+import { LoggingService } from './services/logging/logging.service';
 
 
 
@@ -21,20 +28,36 @@ import { MAT_DATE_LOCALE } from '@angular/material';
   declarations: [
     AppComponent,
     UserLoginComponent,
-    GlobalWrapperComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NavigationModule,
-    ComputerDashboardModule,
-    CompanyDashboardModule,
     FormsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    GlobalWrapperModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    }),
   ],
-  providers: [],
+  providers: [AuthGuard,
+    ComputerGuard,
+    LoggingService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

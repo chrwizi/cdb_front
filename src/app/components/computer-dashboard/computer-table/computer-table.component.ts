@@ -35,10 +35,8 @@ export class ComputerTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.route.snapshot.queryParamMap.get("refresh") === "1"){
-      this.deleteMode = true;
-    }
-
+    this.paginator.pageIndex = parseInt(this.route.snapshot.queryParamMap.get("page"));
+    this.paginator.pageSize = parseInt(this.route.snapshot.queryParamMap.get("rows"));
     this.computerService.getComputers().subscribe( computers => {
       this.computers = computers
       this.dataSource = new MatTableDataSource<Computer>(this.computers);
@@ -57,11 +55,11 @@ export class ComputerTableComponent implements OnInit {
         computers => {
         this.computers = computers;
         this.dataSource = new MatTableDataSource<Computer>(this.computers);
-        this.dataSource.paginator = this.paginator; 
-      }     
-    );
+        this.dataSource.paginator = this.paginator;  
+        }     
+      );
+    }
   }
-}
 }
 
 

@@ -10,8 +10,13 @@ export class ComputerDashboardWrapperComponent implements OnInit {
 
   filter: string = '';
   deleteMode: boolean = false;
+  deleted: boolean = this.route.snapshot.queryParamMap.get("refresh") === "1";
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {
+    if(this.deleted) {
+      this.deleteMode = true;
+    }
+  }
 
   ngOnInit(): void {}
 

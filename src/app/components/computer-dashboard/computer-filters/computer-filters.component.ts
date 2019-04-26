@@ -16,8 +16,9 @@ export class ComputerFiltersComponent implements OnInit {
   onDeleteChanged = new EventEmitter<boolean>();
 
   deleteMode: boolean = false;
-  deleted: boolean = false;
-
+  deleted: boolean = this.route.snapshot.queryParamMap.get("refresh") === "1";
+  done: boolean= false;
+  
   filterForm: FormGroup = this.fb.group({
    filter: ['']
   });
@@ -35,9 +36,10 @@ export class ComputerFiltersComponent implements OnInit {
   }
 
   toggleDelete(): void {
-    if(this.route.snapshot.queryParamMap.get("refresh") === "1" && this.deleted === false){
-      this.deleteMode = true
-      this.deleted = true;
+    if(!this.done && this.deleted){
+      this.deleteMode = true;
+      this.deleted = false;
+      this.done = false;
     }
     this.deleteMode = !this.deleteMode;
     this.onDeleteChanged.emit(this.deleteMode);

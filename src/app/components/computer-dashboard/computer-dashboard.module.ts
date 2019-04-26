@@ -9,6 +9,7 @@ import { ComputerTableComponent } from './computer-table/computer-table.componen
 import { ComputerAddFormComponent } from './computer-add-form/computer-add-form.component';
 import { ComputerUpdateFormComponent } from './computer-update-form/computer-update-form.component';
 import { ComputerDashboardWrapperComponent } from './computer-dashboard-wrapper/computer-dashboard-wrapper.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -17,7 +18,8 @@ import { ComputerDashboardWrapperComponent } from './computer-dashboard-wrapper/
   imports: [
     CommonModule,
     CustomMaterialModule,
-    RouterModule
+    RouterModule,
+    TranslateModule
   ],
   exports: [
     ComputerCountComponent, ComputerFiltersComponent, ComputerTableComponent, ComputerAddFormComponent, ComputerUpdateFormComponent, ComputerDeleteFormComponent, ComputerDashboardWrapperComponent
