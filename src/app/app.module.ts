@@ -28,7 +28,6 @@ import { LoggingService } from './services/logging/logging.service';
   declarations: [
     AppComponent,
     UserLoginComponent,
-    GlobalWrapperComponent,
     UserRegisterComponent,
     UserLoginComponent
   ],
