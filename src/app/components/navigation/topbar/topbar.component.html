@@ -1,3 +1,5 @@
+<script src="bower_components/angular-material/angular-material.js"></script> 
+
 <p class="topbar">
   <button mat-button (click)="mainRoute();">
       <span class="title" ><mat-icon>desktop_mac</mat-icon> Computer Database</span>
@@ -22,6 +24,6 @@
         </mat-menu>
         
   </span>
-        <button (click)="useLanguage('en')">en</button>
-        <button (click)="useLanguage('fr')">fr</button>
+        <button mat-raised-button (click)="useLanguage('en')"><img style="width:60px; height: 30px" src="https://lesplusbeauxdrapeauxdumonde.files.wordpress.com/2016/07/union-jack-1027898_1280.jpg?w=768&h=448"/></button>
+        <button mat-raised-button (click)="useLanguage('fr')"><img style="width:60px; height: 30px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/langfr-338px-Flag_of_France.svg.png"/></button>
 </p>
