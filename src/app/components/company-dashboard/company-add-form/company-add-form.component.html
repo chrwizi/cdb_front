@@ -1,7 +1,21 @@
-<form [formGroup]="companyAddForm" (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <input matInput placeholder="name" value="" formControlName="name">
-  </mat-form-field>
-
-  <button mat-button type="submit" [disabled]="!companyAddForm.valid">submit</button>
-</form>
+<div class="app-company-add-form">
+  <div class="edit-form">
+  
+      <mat-card class="company-container">
+  
+          <div class = cardTitle>
+            {{'add.Add' | translate}} {{'company.Company' | translate}}
+          </div>
+  
+    <form class="field" [formGroup]="companyAddForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input matInput placeholder="{{'add.Name' | translate}}" value="" formControlName="name" required>
+          </mat-form-field>
+          
+          <button class="company-field" type="button" mat-raised-button color="error" routerLink="/companies" routerLinkActive="active">{{'add.Cancel' | translate}}</button>
+  
+          <button class="company-field" type="submit" mat-raised-button color="primary">{{'add.Add' | translate}}</button>
+    </form>
+  </mat-card>
+  </div>
+</div>

@@ -1,27 +1,42 @@
-<div class="edit-form">
-  <form [formGroup]="computerEditForm" (ngSubmit)="onSubmit()">
-        <mat-form-field>
-          <input matInput placeholder="name" formControlName="name">
-        </mat-form-field>
+<div class="app-computer-edit-form">
+  <div class="edit-form">
+  
+      <mat-card class="computer-container">
+  
+          <div class = cardTitle>
+            {{'update.Update' | translate}} {{'company.Company' | translate}}
+          </div>
+  
+    <form class="field" [formGroup]="computerEditForm" (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <input matInput placeholder="{{'update.Name' | translate}}" formControlName="name" required>
+          </mat-form-field>
+          
+          <mat-form-field>
+            <input matInput [matDatepicker]="introductionPicker" placeholder="{{'update.Introduced' | translate}}" formControlName="introduced">
+            <mat-datepicker-toggle matSuffix [for]="introductionPicker"></mat-datepicker-toggle>
+            <mat-datepicker #introductionPicker></mat-datepicker>
+          </mat-form-field>
         
-        <mat-form-field>
-          <input matInput [matDatepicker]="introductionPicker" placeholder="Introduction" formControlName="introduced">
-          <mat-datepicker-toggle matSuffix [for]="introductionPicker"></mat-datepicker-toggle>
-          <mat-datepicker #introductionPicker></mat-datepicker>
-        </mat-form-field>
-      
-        <mat-form-field>
-          <input matInput [matDatepicker]="discontinuationPicker" placeholder="Discontinuation" formControlName="discontinued">
-          <mat-datepicker-toggle matSuffix [for]="discontinuationPicker"></mat-datepicker-toggle>
-          <mat-datepicker #discontinuationPicker></mat-datepicker>
-        </mat-form-field>
-         
-        <mat-select placeholder="company" name="company" formControlName="company">
-          <mat-option *ngFor="let company of this.companies" [value]="company.id">
-            {{company.name}}
-          </mat-option>
-        </mat-select> 
-      
-        <button type="submit" [disabled]="!computerEditForm.valid" mat-button>Submit</button>
-  </form>
+          <mat-form-field>
+            <input matInput [matDatepicker]="discontinuationPicker" placeholder="{{'update.Discontinued' | translate}}" formControlName="discontinued">
+            <mat-datepicker-toggle matSuffix [for]="discontinuationPicker"></mat-datepicker-toggle>
+            <mat-datepicker #discontinuationPicker></mat-datepicker>
+          </mat-form-field>
+           
+          <mat-form-field>
+              <mat-label>{{'update.Select' | translate}}</mat-label>
+              <mat-select placeholder="{{'update.Company' | translate}}" name="company" formControlName="companyId">
+                  <mat-option *ngFor="let company of this.companies" [value]="company.id">
+                    {{company.name}}
+                  </mat-option>
+                </mat-select> 
+          </mat-form-field>
+        
+          <button class="computer-field" type="button" mat-raised-button color="error" routerLink="/computers" routerLinkActive="active">{{'update.Cancel' | translate}}</button>
+  
+          <button class="computer-field" type="submit" [disabled]="!computerEditForm.valid" mat-raised-button color="primary">{{'update.Update' | translate}}</button>
+    </form>
+  </mat-card>
+  </div>
 </div>

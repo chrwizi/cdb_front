@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CompanyCountComponent } from './company-count/company-count.component';
@@ -9,6 +10,7 @@ import { CompanyUpdateFormComponent } from './company-update-form/company-update
 import { CompanyDeleteFormComponent } from './company-delete-form/company-delete-form.component';
 import { CompanyDashboardWrapperComponent } from './company-dashboard-wrapper/company-dashboard-wrapper.component';
 import { CustomMaterialModule } from 'src/app/custom-material/custom-material.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CustomMaterialModule } from 'src/app/custom-material/custom-material.mo
     CompanyDashboardWrapperComponent],
   imports: [
     CommonModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    RouterModule,
+    TranslateModule
   ],
   exports: [
     CompanyCountComponent, CompanyFiltersComponent, CompanyTableComponent, CompanyRowComponent, CompanyAddFormComponent, CompanyUpdateFormComponent, CompanyDeleteFormComponent, CompanyDashboardWrapperComponent

@@ -1,7 +1,6 @@
-import { FormGroup, FormControl } from '@angular/forms';
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { MatDatepicker } from '@angular/material';
-import { EventEmitter } from 'events';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-computer-filters',
@@ -11,23 +10,38 @@ import { EventEmitter } from 'events';
 export class ComputerFiltersComponent implements OnInit {
 
   @Output()
-  fitersChanged: EventEmitter = new EventEmitter();
+  filter: EventEmitter<string> = new EventEmitter();
 
-  filterForm = new FormGroup({
-    name: new FormControl,
-    company: new FormGroup({
-      id: new FormControl,
-      name: new FormControl
-    })
+  @Output()
+  onDeleteChanged = new EventEmitter<boolean>();
+
+  deleteMode: boolean = false;
+  deleted: boolean = this.route.snapshot.queryParamMap.get("refresh") === "1";
+  done: boolean= false;
+  
+  filterForm: FormGroup = this.fb.group({
+   filter: ['']
   });
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute
+  ) { }
 
-  ngOnInit() : void {
-  }
+  ngOnInit(): void {}
   
   onSubmit() : void {
-    this.fitersChanged.emit(null);
+    console.debug("Computer filter component called wrapper with", this.filterForm.value);
+    this.filter.emit(this.filterForm.value.filter);
   }
 
+  toggleDelete(): void {
+    if(!this.done && this.deleted){
+      this.deleteMode = true;
+      this.deleted = false;
+      this.done = false;
+    }
+    this.deleteMode = !this.deleteMode;
+    this.onDeleteChanged.emit(this.deleteMode);
+  }
 }

@@ -1,12 +1,12 @@
 .topbar{
     margin: 0px;
     min-height: 50px;
-    padding-top: 18px;
+    padding-top: 15px;
     padding-right: 16px;
     padding-bottom: 0px;
     padding-left: 16px;
     color:#ffffff;
-    background-color: #3f51b5;
+    background-color: #1a1a1b;
     position: fixed;
     top: 0;
     left: 0;
@@ -14,4 +14,28 @@
     z-index: 2; 
     box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
     font-size: 150%;
+}
+
+.accountDropdown{
+    margin-right: 10px;
+    float: right;
+}
+
+.accountPicture{
+    margin-right: 10px;
+    max-width: 20px;
+    vertical-align: middle;
+}
+
+.accountName{
+    font-size: 20px;
+}
+
+button{
+    margin-right: 10px;
+    vertical-align: middle
+}
+
+.title{
+    vertical-align: middle
 }

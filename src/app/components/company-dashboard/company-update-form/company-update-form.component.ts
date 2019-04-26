@@ -1,5 +1,5 @@
-import { ActivatedRoute } from '@angular/router';
-import { Company } from 'src/app/models/company.model';
+import { ErrorService } from 'src/app/error/error.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CompanyService } from 'src/app/services/company/company.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +19,9 @@ export class CompanyUpdateFormComponent implements OnInit {
   constructor(
     private companyService: CompanyService, 
     private fb: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
+    private errorService: ErrorService
   ) { }
 
   ngOnInit() : void {
@@ -27,15 +29,21 @@ export class CompanyUpdateFormComponent implements OnInit {
     
     this.companyService.getCompany(id).subscribe(
       company => {
-        console.debug('company', company)
-        this.companyEditForm.setValue(company)
+        console.debug('company', company);
+        this.companyEditForm.setValue(company);
       },
-      error => console.error('There was an error retrieving the company')
+      error => this.errorService.error('There was an error retrieving the company')
     ); 
   }
 
   onSubmit() : void {
-    this.companyService.update(this.companyEditForm.value);
+    this.companyService.update(this.companyEditForm.value).subscribe(
+      success => {
+        this.router.navigate(["companies"], { queryParams: { refresh: 1 }});
+        this.errorService.success('The company has been updated successfully');
+      },
+      error => this.errorService.error('There was an error updating the company')
+    );
   }
 
 }

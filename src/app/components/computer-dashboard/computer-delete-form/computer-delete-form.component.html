@@ -1,1 +1,7 @@
-computer delete
+<div class="app-computer-delete-form">
+    <div class="delete-form">
+        <form [formGroup]="computerDeleteForm" (ngSubmit)="onSubmit()">
+            <button mat-raised-button color="warn"><mat-icon>delete_forever</mat-icon></button>
+        </form>
+    </div>
+</div>

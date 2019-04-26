@@ -1,4 +1,4 @@
-import { RouterModule, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,15 +6,27 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './computer-dashboard-wrapper.component.html',
   styleUrls: ['./computer-dashboard-wrapper.component.scss']
 })
+
 export class ComputerDashboardWrapperComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  filter: string = '';
+  deleteMode: boolean = false;
+  deleted: boolean = this.route.snapshot.queryParamMap.get("refresh") === "1";
 
-  ngOnInit() {
+  constructor(private route: ActivatedRoute) {
+    if(this.deleted) {
+      this.deleteMode = true;
+    }
   }
 
-  eventHandler(){
-    console.debug('it works');
+  ngOnInit(): void {}
+
+  refresh(filter): void {
+    console.debug("Wrapper received", filter)
+    this.filter = filter;
   }
 
+  changeDeleteMode(deleteMode: boolean) {
+    this.deleteMode = deleteMode;
+  }
 }

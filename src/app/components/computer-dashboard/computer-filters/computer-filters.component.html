@@ -1,19 +1,25 @@
-<span class="searchbar">
-    <mat-form-field appearance="outline">
-      <mat-label>Search</mat-label>
-      <input matInput placeholder="Name, company...">
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-    
-  </span>
+<div id="app-computer-filter">
+
+  <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+    <span class="searchbar">
+        <mat-form-field appearance="outline">
+          <mat-label>{{'filter.Search' | translate}}</mat-label>
+          <input matInput placeholder="Name, company..." formControlName="filter">
+          <mat-icon matSuffix>{{'filter.Search' | translate}}</mat-icon>
+        </mat-form-field>
+    </span>
+  
+    <span class="filter">
+      <button mat-raised-button type="submit" color="primary">{{'filter.Filter' | translate}}<mat-icon>filter_center_focus</mat-icon></button>
+    </span>
+  </form>
+
   <span class="button">
-    <button mat-raised-button color="primary">Add Computer  <mat-icon>add_to_queue</mat-icon></button>
+    <button mat-raised-button color="primary" routerLink="/computers/add" routerLinkActive="active">{{'computer.Add Computer' | translate}}  <mat-icon>add_to_queue</mat-icon></button>
   </span>
+
   <span class="button">
-    <button mat-raised-button color="accent">Edit Computer  <mat-icon>edit</mat-icon></button>
+    <button mat-raised-button color="warn" (click)="toggleDelete()">{{'computer.Delete Computer' | translate}}  <mat-icon>delete_forever</mat-icon></button>
   </span>
   
-  <span class="button">
-    <button mat-raised-button color="warn">Delete Computer  <mat-icon>delete_forever</mat-icon></button>
-  </span>
-  
+</div>

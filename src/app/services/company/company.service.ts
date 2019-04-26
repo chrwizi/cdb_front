@@ -12,7 +12,7 @@ export class CompanyService {
   constructor(private http: HttpClient) {}
 
   getCompanies(): Observable<Company[]> {
-    return this.http.get<Company[]>(this.url);
+    return this.http.get<Company[]>(`${ this.url }`);
   }
 
   getCompany(id: String): Observable<Company> {
@@ -28,6 +28,6 @@ export class CompanyService {
   }
 
   update(company: Company): Observable<void> {
-    return this.http.patch<void>(`${ this.url }/${ company.id }`, company);
+    return this.http.put<void>(`${ this.url }/${ company.id }`, company);
   }
 }
